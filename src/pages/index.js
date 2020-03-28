@@ -60,6 +60,29 @@ const BannerContainer = styled.div`
 
   `)}
 `
+const Description = styled.p`
+  width: 90%;
+  text-align: center;
+  margin: 0 auto 20px;
+`
+
+const HowProtect = styled.div`
+  margin: 30px;
+
+  img { 
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  ${mq.md(css`
+    img { 
+      width: 30%;
+      margin: 0 auto;
+      display: block;
+    }
+  `)}
+`
 
 const IndexPage = () => (
   <>
@@ -73,13 +96,47 @@ const IndexPage = () => (
         <div className="text">CORONAVIRUS PREVENTION</div>
         </BannerContainer>
       </div>
-      <div className="row">
-        <div className="col-xs-12 col-md-3">1</div>
-        <div className="col-xs-12 col-md-3">2</div>
-        <div className="col-xs-12 col-md-3">3</div>
-        <div className="col-xs-12 col-md-3">4</div>
-        <div className="col-xs-12 col-md-3">5</div>
-        <div className="col-xs-12 col-md-3">6</div>
+      <Title marginTop="30px" marginBottom="30px" max="10" min="20">
+        HOW TO PROTECT YOURSELF
+      </Title>
+      <Description>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</Description>
+      <div className="row center-xs center-md">
+        <div className="col-xs-6 col-md-4">
+          <HowProtect>
+            <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/wash.png" />
+            <strong>Wash your Hands</strong>
+          </HowProtect>
+        </div>
+        <div className="col-xs-6 col-md-4">
+          <HowProtect>
+            <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/home-run.png" />
+            <strong>Avoide Close Contact</strong>
+          </HowProtect>
+        </div>
+        <div className="col-xs-6 col-md-4">
+          <HowProtect>
+            <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/bed.png" />
+            <strong>Stay Home</strong>
+          </HowProtect>
+        </div>
+        <div className="col-xs-6 col-md-4">
+          <HowProtect>
+            <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/cough.png" />
+            <strong>Cover Coughs and Sneezes</strong>
+          </HowProtect>
+        </div>
+        <div className="col-xs-6 col-md-4">
+          <HowProtect>
+            <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/sick.png" />
+            <strong>Wear a Face Mask</strong>
+          </HowProtect>
+        </div>
+        <div className="col-xs-6 col-md-4">
+          <HowProtect>
+            <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/bucket.png" />
+            <strong>Clean and Disinfect</strong>
+          </HowProtect>
+        </div>
       </div>
     </div>
 
