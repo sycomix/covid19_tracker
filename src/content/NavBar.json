@@ -1,0 +1,19 @@
+{
+  "links": [
+    {
+      "name": "Home",
+      "link": "",
+      "category": ""
+    },
+    {
+      "name": "Questions",
+      "link": "",
+      "category": ""
+    },
+    {
+      "name": "Contact",
+      "link": "",
+      "category": ""
+    }
+  ]
+}

@@ -1,11 +1,20 @@
+require('dotenv').config()
+
+const mirage = '#1b262c'
+const white = 'white'
+
 module.exports = {
   siteMetadata: {
-    title: `mindsDB Covid gui`,
-    description: `mindsDB Covid gui`,
-    author: `mindsDB`,
+    title: `MindsDB Covid-19 gui`,
+    description: `MindsDB Covid-19 gui`,
+    author: `MindsDB`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    'gatsby-plugin-sass',
+    'gatsby-plugin-emotion',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,21 +27,29 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `MindsDB Covid App`,
+        short_name: `MindsDB Covid`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
+        background_color: white,
+        theme_color: mirage,
+        display: `standalone`,
         icon: `src/images/mindsDB_icon.jpeg`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-offline`,
-    // {
-    //   resolve: 'gatsby-plugin-typography',
-    //   options: {
-    //     pathToConfigModule: 'src/lib/typography.js',
-    //   },
-    // },
+    `gatsby-plugin-offline`,{
+      resolve: 'gatsby-plugin-module-resolver',
+      options: {
+        root: './src',
+        aliases: {
+          '@': './',
+        },
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-typography',
+      options: {
+        pathToConfigModule: 'src/lib/typography.js',
+      },
+    },
   ],
 }
