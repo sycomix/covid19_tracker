@@ -1,47 +1,43 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import styled from '@emotion/styled'
+
 import WizardFormFirstPage from './WizardFormFirstPage'
 import WizardFormSecondPage from './WizardFormSecondPage'
 import WizardFormThirdPage from './WizardFormThirdPage'
 
-class WizardForm extends Component {
-  constructor(props) {
-    super(props)
-    this.nextPage = this.nextPage.bind(this)
-    this.previousPage = this.previousPage.bind(this)
-    this.state = {
-      page: 1
-    }
-  }
-  nextPage() {
-    this.setState({ page: this.state.page + 1 })
+
+
+const WizardForm  = (props) => {
+  const { onSubmit }  = props
+  const [ page, setPage ] = useState(1);
+
+  const nextPage = () => {
+    setPage( page + 1 )
   }
 
-  previousPage() {
-    this.setState({ page: this.state.page - 1 })
+  const previousPage = () => {
+    setPage( page - 1 )
   }
 
-  render() {
-    const { onSubmit } = this.props
-    const { page } = this.state
-    return (
-      <div>
-        {page === 1 && <WizardFormFirstPage onSubmit={this.nextPage} />}
-        {page === 2 && (
-          <WizardFormSecondPage
-            previousPage={this.previousPage}
-            onSubmit={this.nextPage}
-          />
-        )}
-        {page === 3 && (
-          <WizardFormThirdPage
-            previousPage={this.previousPage}
-            onSubmit={onSubmit}
-          />
-        )}
-      </div>
-    )
-  }
+  return (
+    <>
+      {page === 1 && <WizardFormFirstPage onSubmit={nextPage} />}
+      {page === 2 && (
+        <WizardFormSecondPage
+          previousPage={previousPage}
+          onSubmit={nextPage}
+        />
+      )}
+      {page === 3 && (
+        <WizardFormThirdPage
+          previousPage={previousPage}
+          onSubmit={onSubmit}
+        />
+      )}
+    </>
+  )
+  
 }
 
 WizardForm.propTypes = {
