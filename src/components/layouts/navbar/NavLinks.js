@@ -13,11 +13,13 @@ const Slider = styled.div`
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  justify-content: flex-start;
+  justify-content: flex-end;
   text-align: center;
   -webkit-overflow-scrolling: touch;
+  margin: 18px 0;
 
   ${mq.md(css`
+    margin: 0;
     justify-content: center;
   `)}
 `
