@@ -6,9 +6,8 @@ import Title from '@/components/ui/Title'
 import { Colors } from '@/components/layouts/utils/theme'
 
 import Button from '@/components/ui/Button'
-import Image from '../components/image'
 import SEO from '../components/SEO'
-import Wizard from '../components/ui/Wizard'
+// import Wizard from '../components/ui/Wizard'
 
 const BannerContainer = styled.div`
   position: relative;
@@ -94,11 +93,17 @@ const Separate  = styled.hr`
 `
 
 const Hr = styled.hr`
-background: #40bb7d;
-width: 100%;
-position: relative;
-bottom: 0px;
-height: 2px;`
+  margin-top:20px;
+  background: #40bb7d;
+  width: 100%;
+  position: relative;
+  bottom: 0px;
+  height: 2px;
+
+  ${mq.md(css`
+    margin-top: 0;
+  `)}
+`
 
 const BarInterm = styled.div`
   position: relative;
@@ -133,7 +138,7 @@ const IndexPage = () => (
     <SEO title="Home" />
 
     <div className="container-fluid">
-      <div className="row">
+      <div className="row center-xs">
         <BannerContainer className="col-xs-12 col-md-7">
           <div style={{marginTop: '16%'}}>
             <Title marginTop="30px" marginBottom="30px" max="10" min="25" color="#fff" textAlign="left">
@@ -155,7 +160,7 @@ const IndexPage = () => (
             <Button
               type="common"
               backgroundColor={Colors.mirage}
-              backgroundColorHover={Colors.mirage}
+              backgroundColorHover={Colors.white}
             >
               Start The Test
             </Button>

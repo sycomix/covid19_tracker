@@ -53,17 +53,17 @@ const Footer = (props) => {
         <div className="col-xs-3 col-md-2">
          <SocialMedia>
            <li>
-            <a target="_blank" className="facebook" href="https://www.facebook.com/MindsDB/">
+            <a rel="noopener noreferrer" target="_blank" className="facebook" href="https://www.facebook.com/MindsDB/">
             <FaFacebook />
             </a>
            </li>
            <li>
-            <a target="_blank" className="facebook" href="https://github.com/mindsdb">
+            <a rel="noopener noreferrer" target="_blank" className="facebook" href="https://github.com/mindsdb">
               <FaGithub/>
             </a>
            </li>
            <li>
-            <a target="_blank" className="facebook" href="https://twitter.com/mindsdb">
+            <a rel="noopener noreferrer" target="_blank" className="facebook" href="https://twitter.com/mindsdb">
               <FaTwitter />
             </a>
            </li>

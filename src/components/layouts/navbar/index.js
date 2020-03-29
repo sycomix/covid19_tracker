@@ -1,5 +1,7 @@
 import React from 'react'
-import { Link } from 'gatsby'
+import { connect } from 'react-redux'
+import { get } from 'lodash'
+
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
@@ -32,12 +34,7 @@ const Container = styled.div`
   color: ${Colors.mirage};
   height: 100%;
 `
-const link = css`
-  color: ${Colors.white};
-  text-decoration: none;
-  font-weight: 400;
-  text-transform: lowercase;
-`
+
 const Header = styled.div`
   display: flex;
   flex-direction: row;
@@ -49,12 +46,17 @@ const Header = styled.div`
     margin-bottom: 0px;
   `)}
 `
+
+const ImageContainer = styled.div`
+  width: 150px;
+`
+
 const LogoImage = () => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
-          fluid(maxWidth: 500) {
+          fluid(maxWidth: 250) {
             ...GatsbyImageSharpFluid
           }
         }
@@ -76,7 +78,9 @@ const NavBar = (props) => {
     <NavBarContainer>
       <Container>
         <Header>
-          <LogoImage/>
+          <ImageContainer>
+            <LogoImage/>
+          </ImageContainer>
           {
             !isMobPad
               ? <NavLinks location={location} />
@@ -102,4 +106,8 @@ NavBar.defaultProps = {
   siteTitle: ``,
 }
 
-export default NavBar
+const mapStateToProps = state => ({
+  isMobPad: get(state, 'ui.isMobPad', false),
+})
+
+export default connect(mapStateToProps)(NavBar)

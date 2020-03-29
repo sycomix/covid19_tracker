@@ -27,9 +27,10 @@ const CustomButton = styled.button`
   color: ${props => props.disabled ? Colors.mirage : Colors.white};
 
   &:hover {
-    color: ${props => props.disabled ? Colors.mirage : Colors.romantic};
+    color: ${props => props.disabled ? Colors.mirage : Colors.lightGreen};
     background-color: ${props => props.disabled ? getBackgroungColor(props) : (props.backgroundColorHover || props.backgroundColor)};
-
+  
+    border: ${props => props.disabled ? `1px solid ${Colors.mirage}` : `1px solid ${Colors.lightGreen}`};
     svg {
       path {
         fill: ${props => props.fillIconColorHover || Colors.white};
