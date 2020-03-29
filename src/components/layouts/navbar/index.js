@@ -52,7 +52,7 @@ const Header = styled.div`
 const LogoImage = () => {
   const data = useStaticQuery(graphql`
     query {
-      placeholderImage: file(relativePath: { eq: "gatsby-astronaut.png" }) {
+      placeholderImage: file(relativePath: { eq: "logo.png" }) {
         childImageSharp {
           fluid(maxWidth: 500) {
             ...GatsbyImageSharpFluid

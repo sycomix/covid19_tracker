@@ -3,7 +3,9 @@ import styled from '@emotion/styled'
 import { mq } from '@/components/layouts/utils/base'
 import { css } from '@emotion/core'
 import Title from '@/components/ui/Title'
+import { Colors } from '@/components/layouts/utils/theme'
 
+import Button from '@/components/ui/Button'
 import Image from '../components/image'
 import SEO from '../components/SEO'
 import Wizard from '../components/ui/Wizard'
@@ -15,19 +17,6 @@ const BannerContainer = styled.div`
   background-position: 50% 0%;
   background-size: cover;
   height: 230px;
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0.1;
-    transition: .5s ease;
-    background-color: #40bb7d;
-  }
 
   .text {
     color: white;
@@ -43,8 +32,8 @@ const BannerContainer = styled.div`
   
   ${mq.md(css`
     height: 500px; 
-    -webkit-clip-path: polygon(0 0, 61% 0, 43% 100%, 0 100%);
-    clip-path: polygon(0 0, 61% 0, 43% 100%, 0 100%);
+    -webkit-clip-path: polygon(0 0,100% 0,43% 180%,0 100%);
+    clip-path: polygon(0 0,100% 0,43% 180%,0 100%);
 
     .text {
       color: white;
@@ -66,6 +55,17 @@ const Description = styled.p`
   margin: 0 auto 20px;
 `
 
+const DescriptionBanner = styled.p`
+  width: 85%;
+  text-align: center; 
+  margin: -10px auto;
+
+  ${mq.md(css`
+    text-align: left; 
+    margin: 0;
+  `)}
+`
+
 const HowProtect = styled.div`
   margin: 30px;
 
@@ -84,22 +84,59 @@ const HowProtect = styled.div`
   `)}
 `
 
+const Separate  = styled.hr`
+  background: #40bb7d;
+  height: 5px;
+  width: 10%;
+  margin: -21px auto 20px;
+`
+
+const Hr = styled.hr`
+background: #40bb7d;
+width: 100%;
+position: relative;
+bottom: 0px;
+height: 2px;`
+
 const IndexPage = () => (
   <>
     <SEO title="Home" />
 
     <div className="container-fluid">
       <div className="row">
-        <BannerContainer>
-        <div className="overlay">
-        </div>
-        <div className="text">CORONAVIRUS PREVENTION</div>
+        <BannerContainer className="col-xs-12 col-md-7">
+          <div style={{marginTop: '16%'}}>
+            <Title marginTop="30px" marginBottom="30px" max="10" min="25" color="#fff" textAlign="left">
+              CORONAVIRUS PREVENTION
+            </Title>
+            <DescriptionBanner style={{color: 'white'}}>
+              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s Lorem Ipsum has been the industry's standard dummy text ever since the 1500s
+            </DescriptionBanner>
+          </div>
         </BannerContainer>
+        <div className="col-xs-12 col-md-5">
+          <div style={{marginTop: '19%'}}>
+            <Title marginTop="30px" marginBottom="30px" max="10" min="25" textAlign="left">
+              CORONAVIRUS PREVENTION
+            </Title>
+            <DescriptionBanner>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</DescriptionBanner>
+            <Button
+              type="common"
+              backgroundColor={Colors.mirage}
+              backgroundColorHover={Colors.mirage}
+            >
+              How To Protect
+            </Button>
+          </div>
+        </div>
       </div>
+      <Hr/>
       <Title marginTop="30px" marginBottom="30px" max="10" min="20">
         HOW TO PROTECT YOURSELF
-      </Title>
-      <Description>Leverage agile frameworks to provide a robust synopsis for high level overviews. Iterative approaches to corporate strategy foster collaborative thinking to further the overall value proposition. Organically grow the holistic world view of disruptive innovation via workplace diversity and empowerment.</Description>
+      </Title> 
+      <Separate/>
+      <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Description>
       <div className="row center-xs center-md">
         <div className="col-xs-6 col-md-4">
           <HowProtect>
