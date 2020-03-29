@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import styled from '@emotion/styled'
 
 import WizardFormFirstPage from './WizardFormFirstPage'
 import WizardFormSecondPage from './WizardFormSecondPage'
 import WizardFormThirdPage from './WizardFormThirdPage'
-
-
 
 const WizardForm  = (props) => {
   const { onSubmit }  = props

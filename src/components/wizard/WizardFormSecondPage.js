@@ -12,18 +12,18 @@ const WizardFormSecondPage = props => {
     <form onSubmit={handleSubmit}>
       <Field name="email" type="email" component={renderField} label="Email" />
       <div>
-        <label>Sex</label>
+        <p>Sex</p>
         <div>
-          <label>
-            <Field name="sex" component="input" type="radio" value="male" />{' '}
+          <label htmlFor="male">
+            <Field name="sex" component="input" type="radio" value="male" />
             Male
           </label>
-          <label>
-            <Field name="sex" component="input" type="radio" value="female" />{' '}
+          <label htmlFor="female">
+            <Field name="sex" component="input" type="radio" value="female" />
             Female
           </label>
-          <label>
-            <Field name="sex" component="input" type="radio" value="other" />{' '}
+          <label htmlFor="other">
+            <Field name="sex" component="input" type="radio" value="other" />
             Other
           </label>
           <Field name="sex" component={renderError} />

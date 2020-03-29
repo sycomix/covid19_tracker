@@ -22,8 +22,8 @@ const WizardFormThirdPage = props => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label>Favorite Color</label>
-        <Field name="favoriteColor" component={renderColorSelector} />
+        <label htmlFor="favoriteColor">Favorite Color</label>
+        <Field id="favoriteColor" name="favoriteColor" component={renderColorSelector} />
       </div>
       <div>
         <label htmlFor="employed">Employed</label>
@@ -37,9 +37,9 @@ const WizardFormThirdPage = props => {
         </div>
       </div>
       <div>
-        <label>Notes</label>
+        <label htmlFor="notes">Notes</label>
         <div>
-          <Field name="notes" component="textarea" placeholder="Notes" />
+          <Field id="notes" name="notes" component="textarea" placeholder="Notes" />
         </div>
       </div>
       <div>

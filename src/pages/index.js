@@ -7,7 +7,7 @@ import Title from '@/components/ui/Title'
 import { Colors } from '@/components/layouts/utils/theme'
 
 import Button from '@/components/ui/Button'
-import SEO from '../components/SEO'
+import SEO from '../components/seo'
 // import Wizard from '../components/ui/Wizard'
 
 const BannerContainer = styled.div`
