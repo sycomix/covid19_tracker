@@ -5,7 +5,6 @@ import { FaFacebook, FaTwitter, FaGithub } from 'react-icons/fa';
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
-import Title from '@/components/ui/Title'
 import { mq } from '@/components/layouts/utils/base'
 import { Colors } from '@/components/layouts/utils/theme'
 
