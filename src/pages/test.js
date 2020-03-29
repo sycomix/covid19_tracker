@@ -44,7 +44,7 @@ const TestPage = () => (
        <div className="col-xs-12">
          {/* Wizard */}
          <WizardContainer>
-          <WizardForm />
+          <WizardForm onSubmit={() => {}} />
          </WizardContainer>
         
        </div>

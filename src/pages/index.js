@@ -199,7 +199,7 @@ const IndexPage = () => {
               <DescriptionBanner>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</DescriptionBanner>
               <br />
               <Button
-                type="common"
+                stylesType="common"
                 backgroundColor={Colors.mirage}
                 backgroundColorHover={Colors.white}
                 callback={goto}
