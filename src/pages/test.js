@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
+import WizardForm from '@/components/Wizard/WizardForm'
 import Title from '@/components/ui/Title'
 import SEO from '../components/seo'
 
@@ -28,7 +29,9 @@ const TestPage = () => (
       <Separate/>
       <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Description>
     </div>
+
     {/* Wizard */}
+    <WizardForm />
   </>
 )
 
