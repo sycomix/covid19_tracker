@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 
-import WizardForm from '@/components/Wizard/WizardForm'
+import WizardForm from '@/components/wizard/WizardForm'
 import Title from '@/components/ui/Title'
 import SEO from '../components/seo'
 
