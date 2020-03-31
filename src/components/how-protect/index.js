@@ -40,6 +40,15 @@ const ButtonContainer = styled.div`
   button:first-child {
     margin-bottom: 10px;
   }
+
+  ${mq.md(css`
+    display: flex;
+    justify-content: center;
+
+    button:first-child {
+      margin-right: 20px;
+    }
+  `)}
 `
 
 const HowProtect = () => {
