@@ -4,34 +4,9 @@ import { mq } from '@/components/layouts/utils/base'
 import { css } from '@emotion/core'
 import Title from '@/components/ui/Title'
 
-import Separate from '@/components/ui/separate'
 import BannerComponent from '@/components/banner'
-// import HowProtect from '@/components/how-protect'
+import HowProtect from '@/components/how-protect'
 import SEO from '../components/seo'
-
-const Description = styled.p`
-  width: 90%;
-  text-align: center;
-  margin: 0 auto 20px;
-`
-
-const HowProtect = styled.div`
-  margin: 30px;
-
-  img { 
-    width: 80%;
-    margin: 0 auto;
-    display: block;
-  }
-
-  ${mq.md(css`
-    img { 
-      width: 30%;
-      margin: 0 auto;
-      display: block;
-    }
-  `)}
-`
 
 const Symptoms = styled.div`
   margin: 0 20px 0 20px;
@@ -58,7 +33,7 @@ const BarInterm = styled.div`
   background-position: 53% 1px;
   background-size: cover;
   clip-path: polygon(100% 0,135% 84%,0 100%,0 7%);
-  -webkit-clip-path: polygon(100% 0,135% 84%,0 100%,0 7%);
+  -webkit-clip-path: polygon(100% 0,135% 100%,0 100%,0 7%);
   margin-top: 20px;
   height: 900px;
 
@@ -79,8 +54,6 @@ const BarInterm = styled.div`
   ${mq.md(css`
     height: 470px;
     background-position: 30% -120px;
-    -webkit-clip-path: polygon(100% 0, 100% 84%, 0 100%, 0 23%);
-    clip-path: polygon(100% 0, 100% 84%, 0 100%, 0 23%);
   `)}
 `
 const IndexPage = () => {  
@@ -90,51 +63,9 @@ const IndexPage = () => {
 
       <BannerComponent />
 
-      <div className="container-fluid">
-        <Title marginTop="30px" marginBottom="30px" max="10" min="20">
-          HOW TO PROTECT YOURSELF
-        </Title> 
-        <Separate/>
-        <Description>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</Description>
-        <div className="row center-xs center-md">
-          <div className="col-xs-6 col-md-4">
-            <HowProtect>
-              <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/wash.png" alt="" />
-              <strong>Wash your Hands</strong>
-            </HowProtect>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <HowProtect>
-              <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/home-run.png" alt="" />
-              <strong>Avoide Close Contact</strong>
-            </HowProtect>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <HowProtect>
-              <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/bed.png" alt="" />
-              <strong>Stay Home</strong>
-            </HowProtect>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <HowProtect>
-              <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/cough.png" alt="" />
-              <strong>Cover Coughs and Sneezes</strong>
-            </HowProtect>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <HowProtect>
-              <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/sick.png" alt="" />
-              <strong>Wear a Face Mask</strong>
-            </HowProtect>
-          </div>
-          <div className="col-xs-6 col-md-4">
-            <HowProtect>
-              <img src="https://modeltheme.com/mt_medplus/wp-content/uploads/2020/03/bucket.png" alt="" />
-              <strong>Clean and Disinfect</strong>
-            </HowProtect>
-          </div>
-        </div>
+      <HowProtect />
 
+      <div className="container-fluid">
         <div className="row">
           <BarInterm className="col-xs-12 col-md-12">
             <Title marginTop="100px" marginBottom="30px" max="10" min="20" color="#fff">

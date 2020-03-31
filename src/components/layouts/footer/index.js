@@ -17,7 +17,6 @@ const TopContainer = styled.div`
   height: 160px;
   background-color: ${Colors.concreteSolid};
   color: ${Colors.mirage};
-  margin-top: 20px;
   font-size: 12px;
   
   ${mq.md(css`
@@ -25,7 +24,7 @@ const TopContainer = styled.div`
   `)}
 `
 const BottomContainer = styled.div`
-  height: 70px;
+  height: 80px;
   background-color: ${Colors.mirage};
   display: flex;
   justify-content: flex-start;
@@ -39,6 +38,7 @@ const BottomContainer = styled.div`
 
 const ImageContainer = styled.div`
   margin-top: 10px;
+  margin-bottom: 5px;
   width: 110px;
 
   ${mq.md(css`
@@ -73,7 +73,6 @@ const Footer = (props) => {
             <ImageContainer>
               <LogoImage/>
             </ImageContainer>
-            <br/>
             <p>
               MindsDB is an automated machine learning platform that allows anyone to gain powerful insights from their data.
               With MindsDB, users can get fast, accurate, and interpretable answers to any of their data questions within minutes.

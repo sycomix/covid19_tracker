@@ -20,7 +20,7 @@ const Slider = styled.div`
 
   ${mq.md(css`
     margin: 0;
-    justify-content: center;
+    justify-content: flex-end;
   `)}
 `
 const Slide = styled.div`

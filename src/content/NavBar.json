@@ -4,6 +4,11 @@
       "name": "Home",
       "link": "",
       "category": ""
+    },
+    {
+      "name": "Start Test",
+      "link": "test",
+      "category": ""
     }
   ]
 }

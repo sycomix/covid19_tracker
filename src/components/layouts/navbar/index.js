@@ -49,6 +49,7 @@ const Header = styled.div`
   margin-bottom: 10px;
 
   ${mq.md(css`
+    margin-top: 5px;
     margin-bottom: 0px;
   `)}
 `
