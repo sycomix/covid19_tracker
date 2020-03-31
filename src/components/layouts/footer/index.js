@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { FaFacebook, FaTwitter, FaGithub } from 'react-icons/fa';
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
+import SocialMedia from './SocialMedia'
 import { mq } from '@/components/layouts/utils/base'
 import { Colors } from '@/components/layouts/utils/theme'
 
@@ -14,7 +14,7 @@ const Container = styled.footer`
   color: ${Colors.white};
 `
 const TopContainer = styled.div`
-  height: 170px;
+  height: 160px;
   background-color: ${Colors.concreteSolid};
   color: ${Colors.mirage};
   margin-top: 20px;
@@ -35,18 +35,6 @@ const BottomContainer = styled.div`
   ${mq.md(css`
     font-size: 16px;
   `)}
-`
-
-const SocialMedia = styled.ul`
-  list-style-type: none;
-  display: inline-flex;
-  margin-top: 20px;
-
-  li {
-    margin: 0 15px;
-  }
-
-  a{ color: white} 
 `
 
 const ImageContainer = styled.div`
@@ -75,7 +63,6 @@ const LogoImage = () => {
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
 
-
 const Footer = (props) => {
   return (
     <Container className="container">
@@ -101,23 +88,7 @@ const Footer = (props) => {
           <span>® 2020 MindsDB. All rights reserved.</span>
         </div>
         <div className="col-xs-3 col-md-2">
-         <SocialMedia>
-           <li>
-            <a rel="noopener noreferrer" target="_blank" className="facebook" href="https://www.facebook.com/MindsDB/">
-            <FaFacebook />
-            </a>
-           </li>
-           <li>
-            <a rel="noopener noreferrer" target="_blank" className="facebook" href="https://github.com/mindsdb">
-              <FaGithub/>
-            </a>
-           </li>
-           <li>
-            <a rel="noopener noreferrer" target="_blank" className="facebook" href="https://twitter.com/mindsdb">
-              <FaTwitter />
-            </a>
-           </li>
-         </SocialMedia>
+         <SocialMedia />
         </div>
       </BottomContainer>
     </Container>

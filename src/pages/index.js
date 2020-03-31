@@ -4,69 +4,11 @@ import { navigate } from 'gatsby'
 import { mq } from '@/components/layouts/utils/base'
 import { css } from '@emotion/core'
 import Title from '@/components/ui/Title'
-import { Colors } from '@/components/layouts/utils/theme'
 
-import Button from '@/components/ui/Button'
+import Separate from '@/components/ui/separate'
+import BannerComponent from '@/components/banner'
+import HowProtect from '@/components/how-protect'
 import SEO from '../components/seo'
-// import Wizard from '../components/ui/Wizard'
-
-const BannerContainer = styled.div`
-  position: relative;
-  width: 100%;
-  background-image: url(https://images.unsplash.com/photo-1576765608689-c0e8f69a46b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2248&q=80);
-  background-position: 50% 0%;
-  background-size: cover;
-  height: 230px;
-  opacity: 0.98;
-  margin-bottom: -30px;
-
-  .overlay {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    opacity: 0.7;
-    transition: .5s ease;
-    background-color: #2b2d36e0;
-    z-index: -900;
-  }
-
-  .text {
-    color: white;
-    font-size: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  ${mq.md(css`
-    height: 500px; 
-    -webkit-clip-path: polygon(0 0,100% 0,43% 180%,0 100%);
-    clip-path: polygon(0 0,100% 0,43% 180%,0 100%);
-    opacity: 1;
-    margin-bottom: 0;
-
-    .text {
-      color: white;
-      font-size: 30px;
-      position: absolute;
-      top: 50%;
-      left: 25%;
-      -webkit-transform: translate(-50%, -50%);
-      -ms-transform: translate(-50%, -50%);
-      transform: translate(-50%, -50%);
-      text-align: center;
-    }
-
-  `)}
-`
 
 const Description = styled.p`
   width: 90%;
@@ -86,7 +28,7 @@ const DescriptionBanner = styled.p`
   `)}
 `
 
-const HowProtect = styled.div`
+const HowProtect1 = styled.div`
   margin: 30px;
 
   img { 
@@ -120,26 +62,6 @@ const Symptoms = styled.div`
       margin: 0 auto 20px;
       display: block;
     }
-  `)}
-`
-
-const Separate  = styled.hr`
-  background: #40bb7d;
-  height: 5px;
-  width: 10%;
-  margin: -21px auto 20px;
-`
-
-const Hr = styled.hr`
-  margin-top:20px;
-  background: #40bb7d;
-  width: 100%;
-  position: relative;
-  bottom: 0px;
-  height: 2px;
-
-  ${mq.md(css`
-    margin-top: 0;
   `)}
 `
 
@@ -184,32 +106,10 @@ const IndexPage = () => {
     <>
       <SEO title="Home" />
 
+      <BannerComponent />
+
       <div className="container-fluid">
-        <div className="row center-xs">
-          <BannerContainer className="col-xs-12 col-md-7">
-            <div style={{marginTop: '16%'}}>
-              <div className="overlay" />
-            </div>
-          </BannerContainer>
-          <div className="col-xs-12 col-md-5">
-            <div style={{marginTop: '19%'}}>
-              <Title marginTop="30px" marginBottom="30px" max="10" min="25" textAlign="center">
-                CORONAVIRUS PREVENTION
-              </Title>
-              <DescriptionBanner>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</DescriptionBanner>
-              <br />
-              <Button
-                type="common"
-                backgroundColor={Colors.mirage}
-                backgroundColorHover={Colors.white}
-                callback={goto}
-              >
-                Start The Test
-              </Button>
-            </div>
-          </div>
-          <Hr/>
-        </div>
+        <HowProtect />
         <Title marginTop="30px" marginBottom="30px" max="10" min="20">
           HOW TO PROTECT YOURSELF
         </Title> 
@@ -287,7 +187,6 @@ const IndexPage = () => {
         </div>
       </div>
 
-      {/* <Wizard /> */}
     </>
 )}
 

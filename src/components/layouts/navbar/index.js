@@ -20,7 +20,7 @@ const NavBarContainer = styled.header`
   width: 100%;
   top: 0;
   left: 0;
-  box-shadow: -8px -6px 18px 2px #5d5b5b;
+  box-shadow: -8px 0px 18px 8px #000000;
 
   ${mq.md(css`
     height: 64px;
@@ -66,7 +66,6 @@ const LogoImage = () => {
 
   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
 }
-
 
 const NavBar = (props) => {
   const {
