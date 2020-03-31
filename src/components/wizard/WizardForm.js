@@ -3,8 +3,6 @@ import PropTypes from 'prop-types'
 
 import WizardFormFirstPage from './WizardFormFirstPage'
 import WizardFormDynamicPage from './WizardFormDynamicPage'
-import WizardFormSecondPage from './WizardFormSecondPage'
-import WizardFormThirdPage from './WizardFormThirdPage'
 import { questions } from './questions.json'
 
 const WizardForm = (props) => {

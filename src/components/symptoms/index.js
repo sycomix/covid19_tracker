@@ -2,6 +2,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { mq } from '@/components/layouts/utils/base'
 import { css } from '@emotion/core'
+
 import Title from '@/components/ui/Title'
 
 const Symptoms = styled.div`

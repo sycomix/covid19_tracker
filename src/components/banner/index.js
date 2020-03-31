@@ -70,7 +70,7 @@ const DivContainer = styled.div`
   background: white;
   height: 400px;
   margin-top: 40px;
-  padding: 20px;
+  padding: 30px;
   border-radius: 5px;
   box-shadow: 5px 0px 12px -3px #88888B;
 
@@ -107,7 +107,7 @@ const BannerComponent = () => {
         </div>
         <div className="col-xs-12 col-md-6">
           <DivContainer>
-            <Title marginTop="5px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
+            <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
               CORONAVIRUS PREVENTION
             </Title>
             <Description textAlign="left" color="black" max="10" min="15">
@@ -117,12 +117,13 @@ const BannerComponent = () => {
             </Description>
             <ButtonContainer>
               <Button
-                type="common"
+                type="button"
+                stylesType="common"
                 backgroundColor={Colors.lightGreen}
                 backgroundColorHover={Colors.mirage}
                 callback={goto}
               >
-                START TEST
+                START THE TEST
               </Button>
             </ButtonContainer>
           </DivContainer>
