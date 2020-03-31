@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-// import { navigate } from 'gatsby'
 import { mq } from '@/components/layouts/utils/base'
 import { css } from '@emotion/core'
 import Title from '@/components/ui/Title'
@@ -84,12 +83,7 @@ const BarInterm = styled.div`
     clip-path: polygon(100% 0, 100% 84%, 0 100%, 0 23%);
   `)}
 `
-const IndexPage = () => {
-
-  // const goto = () => {
-  //   navigate('/test')
-  // }
-  
+const IndexPage = () => {  
   return (
     <>
       <SEO title="Home" />

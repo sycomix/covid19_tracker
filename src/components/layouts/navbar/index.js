@@ -21,7 +21,7 @@ const NavBarContainer = styled.header`
   width: 100%;
   top: 0;
   left: 0;
-  box-shadow: -8px 0px 18px 8px #000000;
+  box-shadow: 0px -34px 22px 28px #807979;
 
   ${mq.md(css`
     height: 64px;
@@ -29,7 +29,7 @@ const NavBarContainer = styled.header`
 `
 const Container = styled.div`
   margin: 0px auto;
-  max-width: 1024px;
+  max-width: 95%;
   padding: 10px 20px;
   padding-bottom: 10px;
   color: ${Colors.mirage};
