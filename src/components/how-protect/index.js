@@ -2,7 +2,7 @@ import React from 'react'
 
 import Title from '@/components/ui/Title'
 
-const HowProtect = (props) => {
+const HowProtect1 = (props) => {
 
   return (
     <div className="row">
@@ -16,4 +16,4 @@ const HowProtect = (props) => {
   )
 }
 
-export default HowProtect
+export default HowProtect1

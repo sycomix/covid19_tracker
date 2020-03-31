@@ -1,13 +1,13 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import { navigate } from 'gatsby'
+// import { navigate } from 'gatsby'
 import { mq } from '@/components/layouts/utils/base'
 import { css } from '@emotion/core'
 import Title from '@/components/ui/Title'
 
 import Separate from '@/components/ui/separate'
 import BannerComponent from '@/components/banner'
-import HowProtect from '@/components/how-protect'
+// import HowProtect from '@/components/how-protect'
 import SEO from '../components/seo'
 
 const Description = styled.p`
@@ -16,19 +16,7 @@ const Description = styled.p`
   margin: 0 auto 20px;
 `
 
-const DescriptionBanner = styled.p`
-  text-align: center; 
-  margin: -10px auto;
-  font-size: 14px;
-
-  ${mq.md(css`
-    text-align: left; 
-    margin: 0;
-    font-size: 18px;
-  `)}
-`
-
-const HowProtect1 = styled.div`
+const HowProtect = styled.div`
   margin: 30px;
 
   img { 
@@ -98,9 +86,9 @@ const BarInterm = styled.div`
 `
 const IndexPage = () => {
 
-  const goto = () => {
-    navigate('/test')
-  }
+  // const goto = () => {
+  //   navigate('/test')
+  // }
   
   return (
     <>
@@ -109,26 +97,6 @@ const IndexPage = () => {
       <BannerComponent />
 
       <div className="container-fluid">
-        <div className="row center-xs">
-          <div className="col-xs-12 col-md-5">
-            <div style={{marginTop: '19%'}}>
-              <Title marginTop="30px" marginBottom="30px" max="10" min="25" textAlign="center">
-                CORONAVIRUS PREVENTION
-              </Title>
-              <DescriptionBanner>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</DescriptionBanner>
-              <br />
-              <Button
-                stylesType="common"
-                backgroundColor={Colors.mirage}
-                backgroundColorHover={Colors.white}
-                callback={goto}
-              >
-                Start The Test
-              </Button>
-            </div>
-          </div>
-          <Hr/>
-        </div>
         <Title marginTop="30px" marginBottom="30px" max="10" min="20">
           HOW TO PROTECT YOURSELF
         </Title> 
