@@ -1,12 +1,30 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import styled from '@emotion/styled'
+
 import validate from './validate'
 import renderField from './renderField'
+import { Colors } from '@/components/layouts/utils/theme'
+import Button from '@/components/ui/Button'
+
+const Form = styled.form`
+  input {
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid ${Colors.silver};
+  }
+`
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 20px;
+`
 
 const WizardFormFirstPage = props => {
   const { handleSubmit } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Field
         name="firstName"
         type="text"
@@ -19,12 +37,17 @@ const WizardFormFirstPage = props => {
         component={renderField}
         label="Last Name"
       />
-      <div>
-        <button type="submit" className="next">
+      <ButtonContainer>
+        <Button
+          type="submit"
+          stylesType="common"
+          backgroundColor={Colors.mirage}
+          backgroundColorHover={Colors.white}
+        >
           Next
-        </button>
-      </div>
-    </form>
+        </Button>
+      </ButtonContainer>
+    </Form>
   )
 }
 

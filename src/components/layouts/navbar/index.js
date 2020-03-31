@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
+import { Link } from 'gatsby'
 
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
@@ -34,7 +35,12 @@ const Container = styled.div`
   color: ${Colors.mirage};
   height: 100%;
 `
-
+const link = css`
+  color: ${Colors.white};
+  text-decoration: none;
+  font-weight: 400;
+  text-transform: lowercase;
+`
 const Header = styled.div`
   display: flex;
   flex-direction: row;
@@ -78,7 +84,9 @@ const NavBar = (props) => {
       <Container>
         <Header>
           <ImageContainer>
-            <LogoImage/>
+            <Link to="/" css={link}>
+              <LogoImage/>
+            </Link>
           </ImageContainer>
           {
             !isMobPad

@@ -72,7 +72,7 @@ const icon = css`
   }
 `
 
-const buttonTypes = {
+const buttonStylesType = {
   common,
   link,
   icon,
@@ -84,13 +84,14 @@ const Button = (props) => {
     icon,
     customClass,
     callback,
-    type,
+    stylesType,
     ariaLabel,
     disabled,
     fillIconColor,
     fillIconColorHover,
     backgroundColor,
     backgroundColorHover,
+    type = 'button',
   } = props
 
   const Icon = icon
@@ -98,7 +99,7 @@ const Button = (props) => {
   return (
     <CustomButton
       {...props}
-      css={buttonTypes[type] || customClass}
+      css={buttonStylesType[stylesType] || customClass}
       onClick={() => disabled ? () => {} : callback && callback()}
       aria-label={ariaLabel}
       fillIconColor={fillIconColor}
@@ -106,6 +107,7 @@ const Button = (props) => {
       backgroundColor={backgroundColor}
       backgroundColorHover={backgroundColorHover}
       disabled={disabled}
+      type={type}
     >
       {
         icon

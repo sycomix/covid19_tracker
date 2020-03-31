@@ -109,7 +109,26 @@ const IndexPage = () => {
       <BannerComponent />
 
       <div className="container-fluid">
-        <HowProtect />
+        <div className="row center-xs">
+          <div className="col-xs-12 col-md-5">
+            <div style={{marginTop: '19%'}}>
+              <Title marginTop="30px" marginBottom="30px" max="10" min="25" textAlign="center">
+                CORONAVIRUS PREVENTION
+              </Title>
+              <DescriptionBanner>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</DescriptionBanner>
+              <br />
+              <Button
+                stylesType="common"
+                backgroundColor={Colors.mirage}
+                backgroundColorHover={Colors.white}
+                callback={goto}
+              >
+                Start The Test
+              </Button>
+            </div>
+          </div>
+          <Hr/>
+        </div>
         <Title marginTop="30px" marginBottom="30px" max="10" min="20">
           HOW TO PROTECT YOURSELF
         </Title> 
