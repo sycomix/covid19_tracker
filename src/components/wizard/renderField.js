@@ -15,11 +15,11 @@ const FieldContainer = styled.div`
   }
 `
 
-const renderField = ({ input, label, type, meta: { touched, error } }) => (
+const renderField = ({ input, label, placeholder, type, meta: { touched, error } }) => (
   <FieldContainer>
     <label>{label}</label>
     <div>
-      <input {...input} placeholder={label} type={type} />
+      <input {...input} placeholder={placeholder || label} type={type} />
       {touched && error && <span>{error}</span>}
     </div>
   </FieldContainer>

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import 'firebase/firestore'
 
 import ReduxProvider from '@/store/index'
 import Layout from '@/components/layouts/Main'

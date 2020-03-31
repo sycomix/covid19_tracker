@@ -1,0 +1,149 @@
+{
+  "questions": [
+    {
+      "page": 2,
+      "question": "gender",
+      "name": "gender",
+      "type": "radio",
+      "options": [
+        "male",
+        "female"
+      ]
+    },
+    {
+      "page": 3,
+      "question": "smoker",
+      "name": "smoker",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 4,
+      "question": "hypertension",
+      "name": "hypertension",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 5,
+      "question": "diabetes",
+      "name": "diabetes",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 6,
+      "question": "coronary heart desease",
+      "name": "coronaryHeartDesease",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 7,
+      "question": "Fatigue",
+      "name": "Fatigue",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 8,
+      "question": "breathing Problems",
+      "name": "breathingProblems",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 9,
+      "question": "Cough",
+      "name": "Cough",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 10,
+      "question": "sputum",
+      "name": "sputum",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 11,
+      "question": "Respiratory rate > 24 breaths per min",
+      "name": "respiratoryRate",
+      "placeholder": "Respiratory Rate",
+      "type": "number"
+    },
+    {
+      "page": 12,
+      "question": "Fever (temperature ≥ 37·3°C)",
+      "name": "fever",
+      "placeholder": "Fever temperature",
+      "type": "number"
+    },
+    {
+      "page": 13,
+      "question": "Myalgia",
+      "name": "Myalgia",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 14,
+      "question": "Nausea or vomiting",
+      "name": "nausea",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 15,
+      "question": "diarrhoea",
+      "name": "diarrhoea",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ]
+    },
+    {
+      "page": 16,
+      "question": "exposed",
+      "name": "exposed",
+      "type": "radio",
+      "options": [
+        "yes",
+        "no"
+      ],
+      "isLastStep": true
+    }
+  ]
+}

@@ -5,6 +5,7 @@
  */
 
 import React from 'react'
+import 'firebase/firestore'
 
 import ReduxProvider from '@/store/index'
 import AppProvider from '@/components/providers/App'

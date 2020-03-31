@@ -36,7 +36,8 @@ module.exports = {
         icon: `src/images/mindsDB_icon.jpeg`, // This path is relative to the root of the site.
       },
     },
-    `gatsby-plugin-offline`,{
+    `gatsby-plugin-offline`,
+    {
       resolve: 'gatsby-plugin-module-resolver',
       options: {
         root: './src',
@@ -49,6 +50,21 @@ module.exports = {
       resolve: 'gatsby-plugin-typography',
       options: {
         pathToConfigModule: 'src/lib/typography.js',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-firebase',
+      options: {
+        credentials: {
+          apiKey: process.env.GATSBY_FIREBASE_API_KEY,
+          authDomain: process.env.GATSBY_FIREBASE_AUTH_DOMAIN,
+          databaseURL: process.env.GATSBY_FIREBASE_DATABASE_URL,
+          projectId: process.env.GATSBY_FIREBASE_PROJECT_ID,
+          storageBucket: process.env.GATSBY_FIREBASE_STORAGE_BUCKET,
+          messagingSenderId: process.env.GATSBY_FIREBASE_MESSAGING_SENDER_ID,
+          appId: process.env.GATSBY_FIREBASE_APP_ID,
+          measurementId: process.env.GATSBY_FIREBASE_MEASUREMENT_ID,
+        }
       },
     },
   ],

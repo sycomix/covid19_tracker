@@ -26,16 +26,22 @@ const WizardFormFirstPage = props => {
   return (
     <Form onSubmit={handleSubmit}>
       <Field
-        name="firstName"
+        name="country"
         type="text"
         component={renderField}
-        label="First Name"
+        label="Country"
       />
       <Field
-        name="lastName"
+        name="city"
         type="text"
         component={renderField}
-        label="Last Name"
+        label="City"
+      />
+      <Field
+        name="neighborhood"
+        type="text"
+        component={renderField}
+        label="Neighborhood"
       />
       <ButtonContainer>
         <Button
