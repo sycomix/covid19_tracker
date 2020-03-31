@@ -121,7 +121,7 @@ const BannerComponent = () => {
                 type="button"
                 stylesType="common"
                 backgroundColor={Colors.lightGreen}
-                backgroundColorHover={Colors.mirage}
+                backgroundColorHover={Colors.white}
                 callback={goto}
               >
                 START THE TEST

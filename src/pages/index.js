@@ -8,13 +8,13 @@ import SEO from '../components/seo'
 const IndexPage = () => {  
   return (
     <>
+    
       <SEO title="Home" />
 
       <BannerComponent />
-
       <HowProtect />
-
       <CustomSymptoms />
+
     </>
 )}
 

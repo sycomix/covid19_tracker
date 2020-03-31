@@ -5,6 +5,7 @@ import { css } from '@emotion/core'
 import { mq } from '@/components/layouts/utils/base'
 import { Colors } from '@/components/layouts/utils/theme'
 import Title from '@/components/ui/Title'
+import Button from '@/components/ui/Button'
 import Description from '@/components/ui/Description'
 
 const StrongColor = css`
@@ -29,8 +30,16 @@ const InformedContainer = styled.div`
   }
 
   ${mq.md(css`
-    margin: 20px 0 0 40px;
+    margin: 20px 0;
   `)}
+`
+
+const ButtonContainer = styled.div`
+  margin: 40px auto;
+  text-align: center;
+  button:first-child {
+    margin-bottom: 10px;
+  }
 `
 
 const HowProtect = () => {
@@ -81,7 +90,25 @@ const HowProtect = () => {
             </Title>
             <Description textAlign="center" color="black" max="10" min="18">
               Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
-            </Description> 
+            </Description>
+            <ButtonContainer>
+              <Button
+                type="button"
+                stylesType="common"
+                backgroundColor={Colors.lightGreen}
+                backgroundColorHover={Colors.white}
+              >
+                WHO ADVICE FOR THE PUBLIC
+              </Button>
+              <Button
+                type="button"
+                stylesType="common"
+                backgroundColor={Colors.lightGreen}
+                backgroundColorHover={Colors.white}
+              >
+                HOW DOES THIS WORK
+              </Button>
+            </ButtonContainer>
           </InformedContainer>
         </div>
       </div>
