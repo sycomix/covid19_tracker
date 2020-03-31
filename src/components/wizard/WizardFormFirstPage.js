@@ -29,19 +29,22 @@ const WizardFormFirstPage = props => {
         name="country"
         type="text"
         component={renderField}
-        label="Country"
+        label={<strong>Country:</strong>}
+        placeholder="Enter a Country"
       />
       <Field
         name="city"
         type="text"
         component={renderField}
-        label="City"
+        label={<strong>City:</strong>}
+        placeholder="Enter a City"
       />
       <Field
         name="neighborhood"
         type="text"
         component={renderField}
-        label="Neighborhood"
+        label={<strong>Neighborhood:</strong>}
+        placeholder="Enter a Neighborhood"
       />
       <ButtonContainer>
         <Button

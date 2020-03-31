@@ -659,3 +659,30 @@ pre tt:after {
   transition: height 300ms cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
 }
+
+input[type='radio'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  margin-right: 10px !important;
+}
+
+input[type='radio'] {
+  cursor: pointer;
+  border: #BBC1E1;
+  
+  &::after {
+    content: '✓';
+    color: transparent;
+  }
+}
+
+input[type='radio']:checked {
+  cursor: pointer;
+  background: #40bb7d;
+  background-color: #40bb7d;
+
+  &::after {
+    content: '✔';
+    color: white;
+  }
+}

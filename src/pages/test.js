@@ -21,7 +21,7 @@ const Description = styled.p`
 
 const WizardContainer = styled.div`
   margin: 20px;
-  padding: 20px;
+  padding: 40px;
   border-radius: 5px;
   box-shadow: 5px 0px 12px -3px #88888B;
 `
@@ -66,7 +66,18 @@ const TestPage = () => {
                   </WizardContainer>
                 )
                 : (
-                  <div>Form End</div>
+                  <WizardContainer>
+                    <Title marginTop="20px" marginBottom="30px" max="10" min="20">
+                      The form was completed successfully
+                    </Title>
+                    <Description>
+                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
+                      since the 1500s
+                    </Description>
+                    <Title marginTop="30px" marginBottom="30px" max="10" min="20" color="#40bb7d">
+                      Thank you!
+                    </Title>
+                  </WizardContainer>
                 )
             }
           </div>

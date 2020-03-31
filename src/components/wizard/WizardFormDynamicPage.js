@@ -17,6 +17,7 @@ const Form = styled.form`
   }
 `
 const RadioContainer = styled.div`
+  margin: 40px auto;
   display: flex;
   width: 230px;
   justify-content: space-between;
@@ -47,6 +48,21 @@ const ButtonContainer = styled.div`
   }
 `
 
+const CustomInputText = css`
+  text-align: center;
+  margin: 0 auto 20px;
+  display: block;
+`
+
+const QuestionContainer = styled.div`
+  text-align: center;
+
+  span {
+    font-weight: 900;
+    font-size: 20px;
+  }
+`
+
 const renderError = ({ meta: { touched, error } }) =>
   touched && error ? <span>{error}</span> : false
 
@@ -62,7 +78,7 @@ const WizardFormDynamicPage = props => {
   const validateField = () => {
     if (stepProps.type === 'radio') {
       return (
-        <div>
+        <QuestionContainer>
           <span>{stepProps.question}</span>
           <RadioContainer>
             {
@@ -81,7 +97,7 @@ const WizardFormDynamicPage = props => {
             }
             <Field name={stepProps.name} component={renderError} />
           </RadioContainer>
-        </div>
+        </QuestionContainer>
       )
     }
 
@@ -91,7 +107,7 @@ const WizardFormDynamicPage = props => {
           name={stepProps.name}
           type="number"
           component={renderField}
-          label={stepProps.question}
+          label={<strong css={CustomInputText}>{stepProps.question}</strong>}
           placeholder={stepProps.placeholder}
         />
       )

@@ -2,146 +2,146 @@
   "questions": [
     {
       "page": 2,
-      "question": "gender",
+      "question": "Gender ?",
       "name": "gender",
       "type": "radio",
       "options": [
-        "male",
-        "female"
+        "Male",
+        "Female"
       ]
     },
     {
       "page": 3,
-      "question": "smoker",
+      "question": "Smoker ?",
       "name": "smoker",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 4,
-      "question": "hypertension",
+      "question": "Hypertension ?",
       "name": "hypertension",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 5,
-      "question": "diabetes",
+      "question": "Diabetes ?",
       "name": "diabetes",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 6,
-      "question": "coronary heart desease",
+      "question": "Coronary Heart Desease ?",
       "name": "coronaryHeartDesease",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 7,
-      "question": "Fatigue",
+      "question": "Fatigue ?",
       "name": "Fatigue",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 8,
-      "question": "breathing Problems",
+      "question": "Breathing Problems ?",
       "name": "breathingProblems",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 9,
-      "question": "Cough",
+      "question": "Cough ?",
       "name": "Cough",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 10,
-      "question": "sputum",
+      "question": "Sputum ?",
       "name": "sputum",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 11,
-      "question": "Respiratory rate > 24 breaths per min",
+      "question": "Respiratory rate > 24 Breaths per min ?",
       "name": "respiratoryRate",
       "placeholder": "Respiratory Rate",
       "type": "number"
     },
     {
       "page": 12,
-      "question": "Fever (temperature ≥ 37·3°C)",
+      "question": "Fever (Temperature ≥ 37·3°C) ?",
       "name": "fever",
-      "placeholder": "Fever temperature",
+      "placeholder": "Fever Temperature",
       "type": "number"
     },
     {
       "page": 13,
-      "question": "Myalgia",
+      "question": "Myalgia ?",
       "name": "Myalgia",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 14,
-      "question": "Nausea or vomiting",
+      "question": "Nausea or Vomiting ?",
       "name": "nausea",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 15,
-      "question": "diarrhoea",
+      "question": "Diarrhoea ?",
       "name": "diarrhoea",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ]
     },
     {
       "page": 16,
-      "question": "exposed",
+      "question": "Exposed ?",
       "name": "exposed",
       "type": "radio",
       "options": [
-        "yes",
-        "no"
+        "Yes",
+        "No"
       ],
       "isLastStep": true
     }
