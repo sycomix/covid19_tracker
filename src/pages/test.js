@@ -49,12 +49,12 @@ const TestPage = () => {
           <div className="col-xs-12">
             <Title marginTop="30px" marginBottom="30px" max="10" min="20">
               START THE TEST
-        </Title>
+            </Title>
             <Separate />
             <Description>
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
               since the 1500s
-        </Description>
+            </Description>
           </div>
           <div className="col-xs-12">
             {/* Wizard */}

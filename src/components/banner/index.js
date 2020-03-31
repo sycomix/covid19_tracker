@@ -6,9 +6,10 @@ import { navigate } from 'gatsby'
 
 import Button from '@/components/ui/Button'
 import Description from '@/components/ui/Description'
+import { css } from '@emotion/core'
+
 import Title from '@/components/ui/Title'
 import { mq } from '@/components/layouts/utils/base'
-import { css } from '@emotion/core'
 import { Colors } from '@/components/layouts/utils/theme'
 
 const BackgroundContent = ({ className, children }) => {
@@ -44,7 +45,7 @@ const BackgroundContent = ({ className, children }) => {
 
 const BackgroundContainer = styled(BackgroundContent)`
   width: 100%;
-  height: 85vh;
+  height: 90vh;
   background-repeat: repeat-y;
 
   ${mq.md(css`
