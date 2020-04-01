@@ -21,7 +21,7 @@ const InformedContainer = styled.div`
 
   .title-informed {
     background: ${Colors.lightGreen};
-    width: 250px;
+    width: 270px;
     margin: 0 auto;
 
     strong {
@@ -30,7 +30,7 @@ const InformedContainer = styled.div`
   }
 
   ${mq.md(css`
-    margin: 20px 0;
+    margin: 80px 0;
   `)}
 `
 
@@ -92,7 +92,7 @@ const HowProtect = () => {
         </div>
         <div className="col-xs-12 col-md-5">
           <InformedContainer>
-            <Title marginTop="10px" marginBottom="20px" max="8" min="25" textAlign="center">
+            <Title marginTop="10px" marginBottom="20px" max="8" min="28" textAlign="center">
               <div className="title-informed">
                 BE <strong>WELL</strong> INFORMED
               </div> 

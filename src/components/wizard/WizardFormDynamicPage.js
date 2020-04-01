@@ -139,7 +139,7 @@ const WizardFormDynamicPage = props => {
           backgroundColorHover={Colors.white}
           callback={previousPage}
         >
-          Previous
+          Previous Question
         </Button>
         <Button
           type="submit"
@@ -151,7 +151,7 @@ const WizardFormDynamicPage = props => {
           {
             stepProps.isLastStep
               ? 'Submit'
-              : 'Next'
+              : 'Next Question'
           }
         </Button>
       </ButtonContainer>

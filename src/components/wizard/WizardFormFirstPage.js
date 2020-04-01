@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import styled from '@emotion/styled'
 
+import Title from '@/components/ui/Title'
 import validate from './validate'
 import renderField from './renderField'
 import { Colors } from '@/components/layouts/utils/theme'
@@ -25,6 +26,9 @@ const WizardFormFirstPage = props => {
   const { handleSubmit } = props
   return (
     <Form onSubmit={handleSubmit}>
+       <Title marginBottom="30px" max="10" min="25" color="black">
+        WHERE ARE YOU LOCATED?
+      </Title>
       <Field
         name="country"
         type="text"
@@ -53,7 +57,7 @@ const WizardFormFirstPage = props => {
           backgroundColor={Colors.mirage}
           backgroundColorHover={Colors.white}
         >
-          Next
+          Next Question
         </Button>
       </ButtonContainer>
     </Form>

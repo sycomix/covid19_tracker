@@ -54,7 +54,6 @@ const BackgroundContainer = styled(BackgroundContent)`
     height: 50vh;
   `)}
 `
-
 const HighlightTitle = styled.h2`
   color: white;
   margin: 40px 0 1% 0;
@@ -68,7 +67,6 @@ const HighlightTitle = styled.h2`
     width: 160px;
   `)}
 `
-
 const DivContainer = styled.div`
   background: white;
   height: 400px;
@@ -83,7 +81,6 @@ const DivContainer = styled.div`
     margin-bottom: 20px;
   `)}
 `
-
 const ButtonContainer = styled.div`
   margin: 10px auto;
   text-align: center;
@@ -91,12 +88,10 @@ const ButtonContainer = styled.div`
   ${mq.md(css`
     margin: 30px auto;
   `)}
-
 `
 const alertSpan = css`
   color: #f25c63;
 `
-
 const successSpan = css`
   color: #00b06d;
 `
@@ -109,13 +104,39 @@ const CaptchaContainer = styled.div`
     margin-top: 30px;
   `)}
 `
+const RemoveCookie = styled.div`
+  display: flex;
+  justify-content: center;
+  background: #e65a64;
+  color: white;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+`
+const ButtonCookie = styled.button`
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+  &:hover {
+    font-weight:900;
+  }
+`
 
 const BannerComponent = () => {
   const goto = () => {
     navigate('/test')
   }
 
+  const clearCookies = (e) => {
+    e.preventDefault()
+    Cookies.set('mindsDBCovid', '')
+    setMindsDBCovid('')
+  }
+
   const mindsDBCovid = Cookies.get('mindsDBCovid')
+  const [mindsDBCovidState, setMindsDBCovid] = useState(mindsDBCovid)
   const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
   const onRecaptchaValidated = (recaptchaToken) => {
     setIsValidRecaptcha(!!recaptchaToken)
@@ -125,6 +146,18 @@ const BannerComponent = () => {
   <BackgroundContainer>
     <div className="container">
       <div className="row">
+
+        {
+          mindsDBCovidState === 'completed' && (
+            <div className="col-xs-12">
+                <RemoveCookie onClick={(e) => clearCookies(e)}>
+                  You've already completed the census. Do you want to complete another for a familiar?&nbsp;&nbsp;
+                  <ButtonCookie>Yes</ButtonCookie>
+                </RemoveCookie>
+            </div>
+          )
+        }
+        
         <div className="col-xs-12 col-md-7">
           <div>
             <HighlightTitle>COVID-19:</HighlightTitle>
@@ -159,7 +192,7 @@ const BannerComponent = () => {
                 backgroundColor={Colors.lightGreen}
                 backgroundColorHover={Colors.white}
                 callback={goto}
-                disabled={!isValidRecaptcha || mindsDBCovid === 'completed'}
+                disabled={!isValidRecaptcha || mindsDBCovidState === 'completed'}
               >
                 START CENSUS
               </Button>
