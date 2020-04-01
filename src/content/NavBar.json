@@ -1,14 +1,3 @@
 {
-  "links": [
-    {
-      "name": "Home",
-      "link": "",
-      "category": ""
-    },
-    {
-      "name": "Start The Test",
-      "link": "test",
-      "category": ""
-    }
-  ]
+  "links": []
 }

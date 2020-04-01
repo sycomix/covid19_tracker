@@ -84,6 +84,13 @@ const ButtonContainer = styled.div`
   margin: 40px auto;
   text-align: center;
 `
+const alertSpan = css`
+  color: #f25c63;
+`
+
+const successSpan = css`
+  color: #00b06d;
+`
 
 const BannerComponent = () => {
   const goto = () => {
@@ -92,13 +99,13 @@ const BannerComponent = () => {
 
  return (
   <BackgroundContainer>
-    <div className="container-fluid">
+    <div className="container">
       <div className="row">
-        <div className="col-xs-12 col-md-6">
+        <div className="col-xs-12 col-md-7">
           <div>
-            <HighlightTitle>COVID-19</HighlightTitle>
+            <HighlightTitle>COVID-19:</HighlightTitle>
             <Title marginTop="5px" marginBottom="10px" max="10" min="25" textAlign="left" color="white">
-              PROBABILISTIC ASSESMENT
+              FLATTEN THE CURVE IN YOUR CITY
             </Title>
             <Description textAlign="left" color="white" max="10" min="18">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -106,16 +113,18 @@ const BannerComponent = () => {
             </Description>
           </div>
         </div>
-        <div className="col-xs-12 col-md-6">
+        <div className="col-xs-12 col-md-5">
           <DivContainer>
-            <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
-              CORONAVIRUS PREVENTION
-            </Title>
-            <Description textAlign="left" color="black" max="10" min="15">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever 
-              since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. typesetting industry.  
-              make a type specimen book.
+            <Description textAlign="left" color="#5d6970" max="10" min="14">
+              This assessment <span css={alertSpan}>is not a substitute for professional medical advice</span>, 
+              diagnosis or treatment. This assessment aims to <span css={successSpan}>guide you to the right next steps to take</span>, based on the severity of your symptoms and your location.
             </Description>
+            <Description marginTop="5px" textAlign="left" color="#5d6970" max="10" min="14">
+              The COVID-19 Coronavirus is a new disease and we continue to learn more every day. If you think you may have a life threatening emergency, immediately call your doctor or dial 911.
+            </Description>
+            <div>
+              
+            </div>
             <ButtonContainer>
               <Button
                 type="button"
@@ -124,7 +133,7 @@ const BannerComponent = () => {
                 backgroundColorHover={Colors.white}
                 callback={goto}
               >
-                START THE TEST
+                START CENSUS
               </Button>
             </ButtonContainer>
           </DivContainer>
