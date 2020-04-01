@@ -74,10 +74,12 @@ const DivContainer = styled.div`
   margin-top: 20px;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 5px 0px 12px -3px #88888B;
+  box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.8);
 
   ${mq.md(css`
+    height: 500px;
     margin-top: 30px;
+    margin-bottom: 20px;
   `)}
 `
 
@@ -86,7 +88,7 @@ const ButtonContainer = styled.div`
   text-align: center;
 
   ${mq.md(css`
-    margin: 20px auto;
+    margin: 30px auto;
   `)}
 
 `
@@ -103,7 +105,7 @@ const CaptchaContainer = styled.div`
   margin-top: 10px;
 
   ${mq.md(css`
-    margin-top: 20px;
+    margin-top: 30px;
   `)}
 `
 
