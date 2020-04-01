@@ -20,6 +20,28 @@
     yarn start  
     ```
 
+1.  **Configure the env.**
+
+    Create `.env` file.
+
+    ```shell
+      cp .env.example .env
+    ```
+
+     Then set your Firebase variables
+    ```
+      GATSBY_FIREBASE_API_KEY
+      GATSBY_FIREBASE_AUTH_DOMAIN
+      GATSBY_FIREBASE_DATABASE_URL
+      GATSBY_FIREBASE_PROJECT_ID
+      GATSBY_FIREBASE_STORAGE_BUCKET
+      GATSBY_FIREBASE_MESSAGING_SENDER_ID
+      GATSBY_FIREBASE_APP_ID
+      GATSBY_FIREBASE_MEASUREMENT_ID
+      GATSBY_GOOGLE_RECAPTCHA_KEY
+      GATSBY_GOOGLE_RECAPTCHA_KEY_SECRET
+    ```
+
 1.  **Open the source code and start editing!**
 
     Your site is now running at `http://localhost:8000`!
