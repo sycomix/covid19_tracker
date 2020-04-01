@@ -43,7 +43,7 @@ const Label = styled.label`
 const ButtonContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   margin-top: 20px;
 
@@ -70,7 +70,7 @@ const QuestionContainer = styled.div`
 
   span {
     font-weight: 900;
-    font-size: 20px;
+    font-size: 32px;
   }
 `
 
@@ -135,7 +135,7 @@ const WizardFormDynamicPage = props => {
       <ButtonContainer>
         <Button
           stylesType="common"
-          backgroundColor={Colors.mirage}
+          backgroundColor="#fedc8c"
           backgroundColorHover={Colors.white}
           callback={previousPage}
         >
@@ -144,7 +144,7 @@ const WizardFormDynamicPage = props => {
         <Button
           type="submit"
           stylesType="common"
-          backgroundColor={Colors.mirage}
+          backgroundColor={Colors.lightGreen}
           backgroundColorHover={Colors.white}
           disabled={pristine || submitting}
         >

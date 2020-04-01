@@ -63,7 +63,6 @@ const WizardContainer = styled.div`
   background: white;
   margin: 20px 0;
   padding: 30px;
-  min-height: 481px;
   border-radius: 5px;
   box-shadow: 4px 4px 11px -7px rgba(0, 0, 0, 0.8);
   border: solid 1px rgba(93, 105, 112, 0.3);

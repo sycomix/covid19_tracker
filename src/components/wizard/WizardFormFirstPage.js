@@ -1,12 +1,14 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import styled from '@emotion/styled'
+import { css } from '@emotion/core'
 
 import Title from '@/components/ui/Title'
 import validate from './validate'
 import renderField from './renderField'
 import { Colors } from '@/components/layouts/utils/theme'
 import Button from '@/components/ui/Button'
+import { mq } from '@/components/layouts/utils/base'
 
 const Form = styled.form`
   input {
@@ -20,6 +22,12 @@ const ButtonContainer = styled.div`
   flex-direction: row;
   justify-content: center;
   margin-top: 20px;
+
+  
+  ${mq.sm(css`
+    justify-content: flex-end;
+    margin: 40px 0px -30px 0px;
+  `)}
 `
 
 const WizardFormFirstPage = props => {
@@ -54,7 +62,7 @@ const WizardFormFirstPage = props => {
         <Button
           type="submit"
           stylesType="common"
-          backgroundColor={Colors.mirage}
+          backgroundColor={Colors.lightGreen}
           backgroundColorHover={Colors.white}
         >
           Next Question
