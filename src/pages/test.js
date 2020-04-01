@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import firebase from 'gatsby-plugin-firebase'
+import { reset } from 'redux-form'
 
 import WizardForm from '@/components/wizard/WizardForm'
 import Title from '@/components/ui/Title'
@@ -29,13 +30,18 @@ const WizardContainer = styled.div`
 const TestPage = () => {
   const [showForm, setShowForm] = useState(true)
 
-  const setAnswerData = async (values) => {
+  const setAnswerData = async (values, dispatch) => {
     if (values) {
       const answersCollection = firebase.firestore().collection('answers')
-      const result = await answersCollection.add(values)
+      const result = await answersCollection.add({
+        ...values,
+        submittedDate: new Date(),
+      })
   
       if (result.id) {
         setShowForm(false)
+
+        dispatch(reset('wizard'))
       } 
     }
   }

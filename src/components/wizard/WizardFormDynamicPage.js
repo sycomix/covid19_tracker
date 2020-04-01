@@ -17,10 +17,23 @@ const Form = styled.form`
   }
 `
 const RadioContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  span {
+    color: ${Colors.burntSienna};
+  }
+`
+const RadioOptions = styled.div`
   margin: 40px auto;
+  margin-bottom: 20px;
   display: flex;
   width: 230px;
   justify-content: space-between;
+
+  label {
+    text-transform: capitalize;
+  }
 `
 const Label = styled.label`
   input {
@@ -81,20 +94,22 @@ const WizardFormDynamicPage = props => {
         <QuestionContainer>
           <span>{stepProps.question}</span>
           <RadioContainer>
-            {
-              stepProps.options.map((item, idx) => (
-                <Label htmlFor={item}>
-                  <Field
-                    id={item}
-                    name={stepProps.name}
-                    component="input"
-                    type="radio"
-                    value={item}
-                  />
-                  {item}
-                </Label>
-              ))
-            }
+            <RadioOptions>
+              {
+                stepProps.options.map((item, idx) => (
+                  <Label htmlFor={item}>
+                    <Field
+                      id={item}
+                      name={stepProps.name}
+                      component="input"
+                      type="radio"
+                      value={item}
+                    />
+                    {item}
+                  </Label>
+                ))
+              }
+            </RadioOptions>
             <Field name={stepProps.name} component={renderError} />
           </RadioContainer>
         </QuestionContainer>
