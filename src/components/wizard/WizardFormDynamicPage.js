@@ -60,13 +60,11 @@ const ButtonContainer = styled.div`
     `)}
   }
 `
-
 const CustomInputText = css`
   text-align: center;
   margin: 0 auto 20px;
   display: block;
 `
-
 const QuestionContainer = styled.div`
   text-align: center;
 

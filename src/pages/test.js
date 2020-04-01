@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import firebase from 'gatsby-plugin-firebase'
 import { reset } from 'redux-form'
+import Cookies from 'js-cookie';
 
 import WizardForm from '@/components/wizard/WizardForm'
 import Title from '@/components/ui/Title'
@@ -40,6 +41,7 @@ const TestPage = () => {
   
       if (result.id) {
         setShowForm(false)
+        Cookies.set('mindsDBCovid', 'completed');
 
         dispatch(reset('wizard'))
       } 
@@ -48,7 +50,7 @@ const TestPage = () => {
 
   return (
     <>
-      <SEO title="Test Page" />
+      <SEO title="Censu" />
 
       <div className="container">
         <div className="row">

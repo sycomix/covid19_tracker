@@ -4,6 +4,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { StaticQuery, graphql } from 'gatsby'
 import { navigate } from 'gatsby'
 import ReCAPTCHA from 'react-google-recaptcha'
+import Cookies from 'js-cookie';
 
 import Button from '@/components/ui/Button'
 import Description from '@/components/ui/Description'
@@ -114,6 +115,7 @@ const BannerComponent = () => {
     navigate('/test')
   }
 
+  const mindsDBCovid = Cookies.get('mindsDBCovid')
   const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
   const onRecaptchaValidated = (recaptchaToken) => {
     setIsValidRecaptcha(!!recaptchaToken)
@@ -157,7 +159,7 @@ const BannerComponent = () => {
                 backgroundColor={Colors.lightGreen}
                 backgroundColorHover={Colors.white}
                 callback={goto}
-                disabled={!isValidRecaptcha}
+                disabled={!isValidRecaptcha || mindsDBCovid === 'completed'}
               >
                 START CENSUS
               </Button>

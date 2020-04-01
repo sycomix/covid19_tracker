@@ -37,7 +37,7 @@ const InformedContainer = styled.div`
 const ButtonContainer = styled.div`
   margin: 40px auto;
   text-align: center;
-  button:first-child {
+  button:first-of-type {
     margin-bottom: 10px;
   }
 
@@ -45,7 +45,7 @@ const ButtonContainer = styled.div`
     display: flex;
     justify-content: center;
 
-    button:first-child {
+    button:first-of-type {
       margin-right: 20px;
     }
   `)}
