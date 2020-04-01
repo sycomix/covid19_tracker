@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import BackgroundImage from 'gatsby-background-image'
 import { StaticQuery, graphql } from 'gatsby'
 import { navigate } from 'gatsby'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import Button from '@/components/ui/Button'
 import Description from '@/components/ui/Description'
@@ -70,8 +71,8 @@ const HighlightTitle = styled.h2`
 const DivContainer = styled.div`
   background: white;
   height: 400px;
-  margin-top: 40px;
-  padding: 30px;
+  margin-top: 20px;
+  padding: 20px;
   border-radius: 5px;
   box-shadow: 5px 0px 12px -3px #88888B;
 
@@ -81,8 +82,13 @@ const DivContainer = styled.div`
 `
 
 const ButtonContainer = styled.div`
-  margin: 40px auto;
+  margin: 10px auto;
   text-align: center;
+
+  ${mq.md(css`
+    margin: 20px auto;
+  `)}
+
 `
 const alertSpan = css`
   color: #f25c63;
@@ -91,10 +97,24 @@ const alertSpan = css`
 const successSpan = css`
   color: #00b06d;
 `
+const CaptchaContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  ${mq.md(css`
+    margin-top: 20px;
+  `)}
+`
 
 const BannerComponent = () => {
   const goto = () => {
     navigate('/test')
+  }
+
+  const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
+  const onRecaptchaValidated = (recaptchaToken) => {
+    setIsValidRecaptcha(!!recaptchaToken)
   }
 
  return (
@@ -122,9 +142,12 @@ const BannerComponent = () => {
             <Description marginTop="5px" textAlign="left" color="#5d6970" max="10" min="14">
               The COVID-19 Coronavirus is a new disease and we continue to learn more every day. If you think you may have a life threatening emergency, immediately call your doctor or dial 911.
             </Description>
-            <div>
-              
-            </div>
+            <CaptchaContainer>
+              <ReCAPTCHA
+                sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
+                onChange={onRecaptchaValidated}
+              />
+            </CaptchaContainer>
             <ButtonContainer>
               <Button
                 type="button"
@@ -132,6 +155,7 @@ const BannerComponent = () => {
                 backgroundColor={Colors.lightGreen}
                 backgroundColorHover={Colors.white}
                 callback={goto}
+                disabled={!isValidRecaptcha}
               >
                 START CENSUS
               </Button>
