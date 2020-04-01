@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import BackgroundImage from 'gatsby-background-image'
 import { StaticQuery, graphql } from 'gatsby'
 import { navigate } from 'gatsby'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import Button from '@/components/ui/Button'
 import Description from '@/components/ui/Description'
@@ -90,6 +91,11 @@ const BannerComponent = () => {
     navigate('/test')
   }
 
+  const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
+  const onRecaptchaValidated = (recaptchaToken) => {
+    setIsValidRecaptcha(!!recaptchaToken)
+  }
+
  return (
   <BackgroundContainer>
     <div className="container-fluid">
@@ -116,6 +122,13 @@ const BannerComponent = () => {
               since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. typesetting industry.  
               make a type specimen book.
             </Description>
+            <div>
+              <ReCAPTCHA
+                sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
+                onChange={onRecaptchaValidated}
+              />
+            </div>
+            isValidRecaptcha_{JSON.stringify(isValidRecaptcha)}
             <ButtonContainer>
               <Button
                 type="button"
