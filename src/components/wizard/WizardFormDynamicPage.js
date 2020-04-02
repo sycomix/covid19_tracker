@@ -95,7 +95,7 @@ const WizardFormDynamicPage = props => {
             <RadioOptions>
               {
                 stepProps.options.map((item, idx) => (
-                  <Label htmlFor={item}>
+                  <Label htmlFor={item} key={idx}>
                     <Field
                       id={item}
                       name={stepProps.name}
