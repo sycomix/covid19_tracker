@@ -162,7 +162,7 @@ const BannerComponent = ({ urlPrefix }) => {
           <div>
             <HighlightTitle>COVID-19:</HighlightTitle>
             <Title marginTop="5px" marginBottom="10px" max="10" min="25" textAlign="left" color="white">
-              FLATTEN THE CURVE IN YOUR CITY
+              <FormattedMessage id="banner.leftSection.title" />
             </Title>
             <Description textAlign="left" color="white" max="10" min="18">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -172,9 +172,9 @@ const BannerComponent = ({ urlPrefix }) => {
         </div>
         <div className="col-xs-12 col-md-5">
           <DivContainer>
-            <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
+            {/* <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
               <FormattedMessage id="banner.rightSection.title" />
-            </Title>
+            </Title> */}
             <Description textAlign="left" color="#5d6970" max="10" min="14">
               This assessment <span css={alertSpan}>is not a substitute for professional medical advice</span>, 
               diagnosis or treatment. This assessment aims to <span css={successSpan}>guide you to the right next steps to take</span>, based on the severity of your symptoms and your location.
