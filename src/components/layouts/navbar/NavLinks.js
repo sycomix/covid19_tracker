@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
-import { Link } from 'gatsby'
+import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import { Link } from 'gatsby'
 
 import { mq } from '@/components/layouts/utils/base'
-import { links } from '@/content/NavBar.json'
 import { Colors } from '@/components/layouts/utils/theme'
+import locales from '@/content/locales'
 
 const Slider = styled.div`
   width: 100%;
@@ -62,17 +62,16 @@ const Item = styled.span`
 `
 
 const NavLinks = (props) => {
-  const [navLinks] = useState(links)
-  const { location } = props
-  const { pathname } = location
-  const isSelected = navLink => pathname === navLink.link
+  const { locale } = props
 
   return (
     <Slider>
-      {navLinks.map((navLink, idx) => (
+      {Object.keys(locales).map((key, idx) => (
         <Slide key={idx}>
-          <Item className={isSelected(navLink) ? 'selected' : ''}>
-            <Link to={navLink.link}>{navLink.name}</Link>
+          <Item className={key === locale  ? 'selected' : ''}>
+            <Link to={locales[key].default ? '/' : `/${locales[key].path}`}>
+              {locales[key].locale}
+            </Link>
           </Item>
         </Slide>
       ))}

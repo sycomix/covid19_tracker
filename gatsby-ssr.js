@@ -16,9 +16,11 @@ wrapRootElement.propTypes = {
 }
 
 export const wrapPageElement = ({ element, props }) => {
+  const { pageContext: { locale } } = props
+
   // props provide same data to Layout as Page element will get
   // including location, data, etc - you don't need to pass it
-  return <Layout {...props}>{element}</Layout>
+  return <Layout {...props} locale={locale}>{element}</Layout>
 }
 
 export default {}

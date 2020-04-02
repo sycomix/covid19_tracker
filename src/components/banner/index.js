@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import BackgroundImage from 'gatsby-background-image'
-import { StaticQuery, graphql } from 'gatsby'
-import { navigate } from 'gatsby'
+import { StaticQuery, graphql, navigate } from 'gatsby'
 import ReCAPTCHA from 'react-google-recaptcha'
+import { FormattedMessage } from 'react-intl'
 
 import Button from '@/components/ui/Button'
 import Description from '@/components/ui/Description'
@@ -86,9 +86,9 @@ const ButtonContainer = styled.div`
   text-align: center;
 `
 
-const BannerComponent = () => {
+const BannerComponent = ({ urlPrefix }) => {
   const goto = () => {
-    navigate('/test')
+    navigate(`${urlPrefix}/test`)
   }
 
   const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
@@ -115,7 +115,7 @@ const BannerComponent = () => {
         <div className="col-xs-12 col-md-6">
           <DivContainer>
             <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
-              CORONAVIRUS PREVENTION
+              <FormattedMessage id="banner.rightSection.title" />
             </Title>
             <Description textAlign="left" color="black" max="10" min="15">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever 

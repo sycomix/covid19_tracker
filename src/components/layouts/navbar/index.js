@@ -1,17 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import { Link } from 'gatsby'
-
+import { useStaticQuery, graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
 import { mq } from '@/components/layouts/utils/base'
 import NavLinks from './NavLinks'
 import { Colors } from '@/components/layouts/utils/theme'
+import { LocalizedLink } from '@/components/ui/LocalizedLink'
 
 const NavBarContainer = styled.header`
   z-index: 10000;
@@ -78,6 +77,7 @@ const NavBar = (props) => {
   const {
     isMobPad,
     location,
+    locale,
   } = props
 
   return (
@@ -85,20 +85,20 @@ const NavBar = (props) => {
       <Container>
         <Header>
           <ImageContainer>
-            <Link to="/" css={link}>
+            <LocalizedLink to="/" css={link}>
               <LogoImage/>
-            </Link>
+            </LocalizedLink>
           </ImageContainer>
           {
             !isMobPad
-              ? <NavLinks location={location} />
+              ? <NavLinks location={location} locale={locale} />
               : null
           }
 
         </Header>
         {
           isMobPad 
-            ? <NavLinks location={location} />
+            ? <NavLinks location={location} locale={locale} />
             : null
         }
       </Container>
