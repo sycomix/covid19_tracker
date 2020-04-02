@@ -4,6 +4,7 @@ import BackgroundImage from 'gatsby-background-image'
 import { StaticQuery, graphql, navigate } from 'gatsby'
 import ReCAPTCHA from 'react-google-recaptcha'
 import { FormattedMessage } from 'react-intl'
+import Cookies from 'js-cookie';
 
 import Button from '@/components/ui/Button'
 import Description from '@/components/ui/Description'
@@ -53,7 +54,6 @@ const BackgroundContainer = styled(BackgroundContent)`
     height: 50vh;
   `)}
 `
-
 const HighlightTitle = styled.h2`
   color: white;
   margin: 40px 0 1% 0;
@@ -67,23 +67,61 @@ const HighlightTitle = styled.h2`
     width: 160px;
   `)}
 `
-
 const DivContainer = styled.div`
   background: white;
   height: 400px;
-  margin-top: 40px;
-  padding: 30px;
+  margin-top: 20px;
+  padding: 20px;
   border-radius: 5px;
-  box-shadow: 5px 0px 12px -3px #88888B;
+  box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.8);
+
+  ${mq.md(css`
+    height: 500px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  `)}
+`
+const ButtonContainer = styled.div`
+  margin: 10px auto;
+  text-align: center;
+
+  ${mq.md(css`
+    margin: 30px auto;
+  `)}
+`
+const alertSpan = css`
+  color: #f25c63;
+`
+const successSpan = css`
+  color: #00b06d;
+`
+const CaptchaContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
 
   ${mq.md(css`
     margin-top: 30px;
   `)}
 `
-
-const ButtonContainer = styled.div`
-  margin: 40px auto;
-  text-align: center;
+const RemoveCookie = styled.div`
+  display: flex;
+  justify-content: center;
+  background: #e65a64;
+  color: white;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+`
+const ButtonCookie = styled.button`
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+  &:hover {
+    font-weight:900;
+  }
 `
 
 const BannerComponent = ({ urlPrefix }) => {
@@ -91,6 +129,14 @@ const BannerComponent = ({ urlPrefix }) => {
     navigate(`${urlPrefix}/test`)
   }
 
+  const clearCookies = (e) => {
+    e.preventDefault()
+    Cookies.set('mindsDBCovid', '')
+    setMindsDBCovid('')
+  }
+
+  const mindsDBCovid = Cookies.get('mindsDBCovid')
+  const [mindsDBCovidState, setMindsDBCovid] = useState(mindsDBCovid)
   const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
   const onRecaptchaValidated = (recaptchaToken) => {
     setIsValidRecaptcha(!!recaptchaToken)
@@ -98,13 +144,25 @@ const BannerComponent = ({ urlPrefix }) => {
 
  return (
   <BackgroundContainer>
-    <div className="container-fluid">
+    <div className="container">
       <div className="row">
-        <div className="col-xs-12 col-md-6">
+
+        {
+          mindsDBCovidState === 'completed' && (
+            <div className="col-xs-12">
+                <RemoveCookie onClick={(e) => clearCookies(e)}>
+                  You've already completed the census. Do you want to complete another for a familiar?&nbsp;&nbsp;
+                  <ButtonCookie>Yes</ButtonCookie>
+                </RemoveCookie>
+            </div>
+          )
+        }
+        
+        <div className="col-xs-12 col-md-7">
           <div>
-            <HighlightTitle>COVID-19</HighlightTitle>
+            <HighlightTitle>COVID-19:</HighlightTitle>
             <Title marginTop="5px" marginBottom="10px" max="10" min="25" textAlign="left" color="white">
-              PROBABILISTIC ASSESMENT
+              FLATTEN THE CURVE IN YOUR CITY
             </Title>
             <Description textAlign="left" color="white" max="10" min="18">
               Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
@@ -112,23 +170,24 @@ const BannerComponent = ({ urlPrefix }) => {
             </Description>
           </div>
         </div>
-        <div className="col-xs-12 col-md-6">
+        <div className="col-xs-12 col-md-5">
           <DivContainer>
             <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
               <FormattedMessage id="banner.rightSection.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="15">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever 
-              since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. typesetting industry.  
-              make a type specimen book.
+            <Description textAlign="left" color="#5d6970" max="10" min="14">
+              This assessment <span css={alertSpan}>is not a substitute for professional medical advice</span>, 
+              diagnosis or treatment. This assessment aims to <span css={successSpan}>guide you to the right next steps to take</span>, based on the severity of your symptoms and your location.
             </Description>
-            <div>
+            <Description marginTop="5px" textAlign="left" color="#5d6970" max="10" min="14">
+              The COVID-19 Coronavirus is a new disease and we continue to learn more every day. If you think you may have a life threatening emergency, immediately call your doctor or dial 911.
+            </Description>
+            <CaptchaContainer>
               <ReCAPTCHA
                 sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
                 onChange={onRecaptchaValidated}
               />
-            </div>
-            isValidRecaptcha_{JSON.stringify(isValidRecaptcha)}
+            </CaptchaContainer>
             <ButtonContainer>
               <Button
                 type="button"
@@ -136,8 +195,9 @@ const BannerComponent = ({ urlPrefix }) => {
                 backgroundColor={Colors.lightGreen}
                 backgroundColorHover={Colors.white}
                 callback={goto}
+                disabled={!isValidRecaptcha || mindsDBCovidState === 'completed'}
               >
-                START THE TEST
+                START CENSUS
               </Button>
             </ButtonContainer>
           </DivContainer>

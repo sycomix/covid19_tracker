@@ -27,12 +27,16 @@ const NavBarContainer = styled.header`
   `)}
 `
 const Container = styled.div`
-  margin: 0px auto;
-  max-width: 95%;
+  margin: 20px auto;
   padding: 10px 20px;
   padding-bottom: 10px;
   color: ${Colors.mirage};
   height: 100%;
+
+  ${mq.md(css`
+    margin: 0px auto;
+    max-width: 83%;
+  `)}
 `
 const link = css`
   color: ${Colors.white};
