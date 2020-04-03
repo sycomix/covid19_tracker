@@ -20,7 +20,6 @@ const NavBarContainer = styled.header`
   width: 100%;
   top: 0;
   left: 0;
-  box-shadow: 0px -34px 22px 28px #807979;
 
   ${mq.md(css`
     height: 64px;

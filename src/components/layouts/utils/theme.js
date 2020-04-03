@@ -1,7 +1,7 @@
 export const Colors = {
   black: 'black',
   white: 'white',
-  mirage: '#1B262C', // main theme color
+  mirage: '#2c263f', // main theme color
   burntSienna: '#ED6663',
   sweetPink: '#F99B99',
   concreteSolid: '#F2F2F2',

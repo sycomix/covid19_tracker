@@ -1,7 +1,8 @@
 import React from 'react'
 import { FaFacebook, FaTwitter, FaGithub } from 'react-icons/fa'
-
 import styled from '@emotion/styled'
+
+import { Colors } from '@/components/layouts/utils/theme'
 
 const CustomSocialMedia = styled.ul`
   list-style-type: none;
@@ -11,7 +12,7 @@ const CustomSocialMedia = styled.ul`
   li {
     margin: 0 15px;
   }
-  a { color: white} 
+  a { color: ${Colors.mirage}} 
 `
 
 const SocialMedia = () => (

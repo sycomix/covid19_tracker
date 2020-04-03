@@ -2,8 +2,6 @@ import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { FormattedMessage } from 'react-intl'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
 
 import SocialMedia from './SocialMedia'
 import { mq } from '@/components/layouts/utils/base'
@@ -11,22 +9,12 @@ import { Colors } from '@/components/layouts/utils/theme'
 
 const Container = styled.footer`
   width: 100%;
-  height: 240px; /* TopContainer + BottomContainer */
-  color: ${Colors.white};
-`
-const TopContainer = styled.div`
-  height: 160px;
-  background-color: ${Colors.concreteSolid};
+  height: 200px;
   color: ${Colors.mirage};
-  font-size: 12px;
-  
-  ${mq.md(css`
-    font-size: 16px;
-  `)}
 `
 const BottomContainer = styled.div`
   height: 80px;
-  background-color: ${Colors.mirage};
+  background-color: ${Colors.white};
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -36,58 +24,37 @@ const BottomContainer = styled.div`
     font-size: 16px;
   `)}
 `
-
-const ImageContainer = styled.div`
+const FooterList = styled.ul`
+  line-height: 0.9;
   margin-top: 10px;
-  margin-bottom: 5px;
-  width: 110px;
-
-  ${mq.md(css`
-    margin-top: 20px;
-    width: 150px;
-  `)}  
+  list-style: none;
+  margin-left: 0px;
 `
-
-const LogoImage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 250) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-}
+const Href = styled.a`
+  color: ${Colors.lightGreen};
+`
 
 const Footer = (props) => {
   return (
-    <Container className="container">
-      <TopContainer className="row">
-       <div className="container">
-         <div className="row">
-           <div className="col-xs-12 col-md-12">
-            <ImageContainer>
-              <LogoImage/>
-            </ImageContainer>
-            <p>
-              <FormattedMessage id="footer.minds.description" />
-              <strong> <FormattedMessage id="footer.minds.description.email" /></strong>
-            </p>
-           </div>
-         </div>
-       </div>
-      </TopContainer>
+    <Container className="container-fluid">
       <BottomContainer className="row">
-        <div className="col-xs-6 col-md-10">
-          <span>® 2020 MindsDB. All rights reserved.</span>
-        </div>
-        <div className="col-xs-3 col-md-2">
-         <SocialMedia />
+        <div className="container">
+          <div className="row">
+            <div className="col-xs-12 col-md-12">
+              <strong><FormattedMessage id="footer.minds.title" /></strong>
+              <FooterList>
+                <li><Href href="">Privacy Policy</Href></li>
+                <li><Href href="">Cookies Policy</Href></li>
+                <li><Href href="">Terms</Href></li>
+              </FooterList>
+            </div>
+            <div className="col-xs-6 col-md-10">
+              <span>® 2020 MindsDB. All rights reserved.</span>
+            </div>
+            <div className="col-xs-3 col-md-2">
+              <SocialMedia />
+            </div>
+          </div>
         </div>
       </BottomContainer>
     </Container>

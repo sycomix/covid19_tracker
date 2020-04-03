@@ -147,7 +147,7 @@ const TestPage = () => {
                       </Description>
                       <Title marginTop="50px" marginBottom="30px" max="10" min="28" color="black">
                         <FormattedMessage id="wizard.finish.description.strong.part1" /> 
-                        <ThanksColor><FormattedMessage id="wizard.finish.description.strong.part2" /></ThanksColor> 
+                        <ThanksColor>&nbsp;<FormattedMessage id="wizard.finish.description.strong.part2" />&nbsp;</ThanksColor> 
                         <FormattedMessage id="wizard.finish.description.strong.part3" />
                       </Title>
                       <ButtonContainer>
