@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import { FormattedMessage } from 'react-intl'
 import { useStaticQuery, graphql } from 'gatsby'
 import Img from 'gatsby-image'
 
@@ -74,9 +75,8 @@ const Footer = (props) => {
               <LogoImage/>
             </ImageContainer>
             <p>
-              MindsDB is an automated machine learning platform that allows anyone to gain powerful insights from their data.
-              With MindsDB, users can get fast, accurate, and interpretable answers to any of their data questions within minutes.
-              <strong> support@mindsdb.com</strong>
+              <FormattedMessage id="footer.minds.description" />
+              <strong> <FormattedMessage id="footer.minds.description.email" /></strong>
             </p>
            </div>
          </div>

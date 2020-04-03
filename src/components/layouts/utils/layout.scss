@@ -680,9 +680,5 @@ input[type='radio']:checked {
   cursor: pointer;
   background: #40bb7d;
   background-color: #40bb7d;
-
-  &::after {
-    content: '✔';
-    color: white;
-  }
+  
 }

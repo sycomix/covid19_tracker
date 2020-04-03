@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import { FormattedMessage } from 'react-intl'
 
 import { mq } from '@/components/layouts/utils/base'
 import { Colors } from '@/components/layouts/utils/theme'
@@ -58,7 +59,7 @@ const HowProtect = () => {
       <div className="row">
         <div className="col-xs-12 col-md-6">
           <Title marginTop="40px" marginBottom="20px" max="8" min="28" textAlign="left">
-          BE PART OF THE <strong css={StrongColor}>CURE</strong>
+            <FormattedMessage id="howprotect.title" /> <strong css={StrongColor}><FormattedMessage id="howprotect.title.cure" /></strong>
           </Title> 
         </div>
       </div>
@@ -67,38 +68,55 @@ const HowProtect = () => {
         <div className="col-xs-12 col-md-7">
           <div css={marginDiv}>
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
-              Wash Your Hands
+               <FormattedMessage id="howprotect.washyourhands.title" />
             </Title> 
-            <Description textAlign="left" color="black" max="10" min="18">
-              Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            <Description textAlign="left" color="black" max="10" min="16">
+              <FormattedMessage id="howprotect.washyourhands.description" />
             </Description> 
           </div>
           <div css={marginDiv}>
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
-              Don't Touch Your Face
+              <FormattedMessage id="howprotect.dontouchyourface.title" />
             </Title> 
-            <Description textAlign="left" color="black" max="10" min="18">
-              Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            <Description textAlign="left" color="black" max="10" min="16">
+              <FormattedMessage id="howprotect.dontouchyourface.description" />
             </Description> 
           </div>
           <div css={marginDiv}>
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
-              Avoid Social Physical Contact
+              <FormattedMessage id="howprotect.avoid.title" />
             </Title> 
-            <Description textAlign="left" color="black" max="10" min="18">
-              Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            <Description textAlign="left" color="black" max="10" min="16">
+              <FormattedMessage id="howprotect.avoid.description" />
             </Description> 
           </div>
+          <div css={marginDiv}>
+            <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
+              <FormattedMessage id="howprotect.respitory.title" />
+            </Title> 
+            <Description textAlign="left" color="black" max="10" min="16">
+              <FormattedMessage id="howprotect.respitory.description" />
+            </Description> 
+          </div>
+          <div css={marginDiv}>
+            <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
+              <FormattedMessage id="howprotect.cough.title" />
+            </Title> 
+            <Description textAlign="left" color="black" max="10" min="16">
+              <FormattedMessage id="howprotect.cough.description" />
+            </Description> 
+          </div>
+          <br />
         </div>
         <div className="col-xs-12 col-md-5">
           <InformedContainer>
             <Title marginTop="10px" marginBottom="20px" max="8" min="28" textAlign="center">
               <div className="title-informed">
-                BE <strong>WELL</strong> INFORMED
+                <FormattedMessage id="howprotect.right.title.part1" /> <strong> <FormattedMessage id="howprotect.right.title.part2" /></strong>  <FormattedMessage id="howprotect.right.title.part3" />
               </div> 
             </Title>
-            <Description textAlign="center" color="black" max="10" min="18">
-              Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+            <Description textAlign="center" color="black" max="10" min="16">
+              <FormattedMessage id="howprotect.right.description" />
             </Description>
             <ButtonContainer>
               <Button
@@ -107,7 +125,7 @@ const HowProtect = () => {
                 backgroundColor={Colors.lightGreen}
                 backgroundColorHover={Colors.white}
               >
-                WHO ADVICE FOR THE PUBLIC
+                <FormattedMessage id="howprotect.right.title.button1" />
               </Button>
               <Button
                 type="button"
@@ -115,7 +133,7 @@ const HowProtect = () => {
                 backgroundColor={Colors.lightGreen}
                 backgroundColorHover={Colors.white}
               >
-                HOW DOES THIS WORK
+                <FormattedMessage id="howprotect.right.title.button2" />
               </Button>
             </ButtonContainer>
           </InformedContainer>

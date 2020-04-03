@@ -13,14 +13,16 @@ const FieldContainer = styled.div`
     flex-direction: column;
     margin-bottom: 20px;
   }
+  input {
+    border: ${props => props.error ? `1px solid ${Colors.burntSienna}` : 'auto'};
+  }
 `
 
 const renderField = ({ input, label, placeholder, type, meta: { touched, error } }) => (
-  <FieldContainer>
+  <FieldContainer error={touched && error}>
     <label>{label}</label>
     <div>
       <input {...input} placeholder={placeholder || label} type={type} />
-      {touched && error && <span>{error}</span>}
     </div>
   </FieldContainer>
 )

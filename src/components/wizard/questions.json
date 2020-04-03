@@ -2,7 +2,7 @@
   "questions": [
     {
       "page": 2,
-      "question": "Gender ?",
+      "question": "What is you gender?",
       "name": "gender",
       "type": "radio",
       "options": [
@@ -12,7 +12,7 @@
     },
     {
       "page": 3,
-      "question": "Smoker ?",
+      "question": "Are you smoker?",
       "name": "smoker",
       "type": "radio",
       "options": [
@@ -22,7 +22,7 @@
     },
     {
       "page": 4,
-      "question": "Hypertension ?",
+      "question": "Do you have hypertension?",
       "name": "hypertension",
       "type": "radio",
       "options": [
@@ -32,7 +32,7 @@
     },
     {
       "page": 5,
-      "question": "Diabetes ?",
+      "question": "Do you have diabetes?",
       "name": "diabetes",
       "type": "radio",
       "options": [
@@ -42,7 +42,7 @@
     },
     {
       "page": 6,
-      "question": "Coronary Heart Desease ?",
+      "question": "Do you have coronary heart desease?",
       "name": "coronaryHeartDesease",
       "type": "radio",
       "options": [
@@ -52,7 +52,7 @@
     },
     {
       "page": 7,
-      "question": "Fatigue ?",
+      "question": "Do you have fatigue?",
       "name": "fatigue",
       "type": "radio",
       "options": [
@@ -62,7 +62,7 @@
     },
     {
       "page": 8,
-      "question": "Breathing Problems ?",
+      "question": "Do you have breathing problems?",
       "name": "breathingProblems",
       "type": "radio",
       "options": [
@@ -72,7 +72,7 @@
     },
     {
       "page": 9,
-      "question": "Cough ?",
+      "question": "Do you have cough?",
       "name": "cough",
       "type": "radio",
       "options": [
@@ -82,7 +82,7 @@
     },
     {
       "page": 10,
-      "question": "Sputum ?",
+      "question": "Do you have sputum?",
       "name": "sputum",
       "type": "radio",
       "options": [
@@ -92,7 +92,7 @@
     },
     {
       "page": 11,
-      "question": "Respiratory rate > 24 Breaths per min ?",
+      "question": "Respiratory rate > 24 Breaths per min?",
       "name": "respiratoryRate",
       "placeholder": "Respiratory Rate",
       "type": "number"
@@ -106,7 +106,7 @@
     },
     {
       "page": 13,
-      "question": "Myalgia ?",
+      "question": "Do you have myalgia?",
       "name": "myalgia",
       "type": "radio",
       "options": [
@@ -116,7 +116,7 @@
     },
     {
       "page": 14,
-      "question": "Nausea or Vomiting ?",
+      "question": "Do you have nausea or vomiting?",
       "name": "nausea",
       "type": "radio",
       "options": [
@@ -126,7 +126,7 @@
     },
     {
       "page": 15,
-      "question": "Diarrhoea ?",
+      "question": "Do you have diarrhoea?",
       "name": "diarrhoea",
       "type": "radio",
       "options": [
@@ -136,7 +136,7 @@
     },
     {
       "page": 16,
-      "question": "Exposed ?",
+      "question": "Are you exposed?",
       "name": "exposed",
       "type": "radio",
       "options": [

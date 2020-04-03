@@ -47,7 +47,7 @@ const BackgroundContent = ({ className, children }) => {
 
 const BackgroundContainer = styled(BackgroundContent)`
   width: 100%;
-  height: 90vh;
+  height: auto;
   background-repeat: repeat-y;
 
   ${mq.md(css`
@@ -69,8 +69,9 @@ const HighlightTitle = styled.h2`
 `
 const DivContainer = styled.div`
   background: white;
-  height: 400px;
+  height: 430px;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.8);
@@ -88,12 +89,6 @@ const ButtonContainer = styled.div`
   ${mq.md(css`
     margin: 30px auto;
   `)}
-`
-const alertSpan = css`
-  color: #f25c63;
-`
-const successSpan = css`
-  color: #00b06d;
 `
 const CaptchaContainer = styled.div`
   display: flex;
@@ -123,6 +118,14 @@ const ButtonCookie = styled.button`
     font-weight:900;
   }
 `
+const customDescription = css`
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+`
+const SepareteSpan = styled.span`
+  margin: 10px;
+  display: block;
+`
 
 const BannerComponent = ({ urlPrefix }) => {
   const goto = () => {
@@ -151,8 +154,8 @@ const BannerComponent = ({ urlPrefix }) => {
           mindsDBCovidState === 'completed' && (
             <div className="col-xs-12">
                 <RemoveCookie onClick={(e) => clearCookies(e)}>
-                  You've already completed the census. Do you want to complete another for a familiar?&nbsp;&nbsp;
-                  <ButtonCookie>Yes</ButtonCookie>
+                  <FormattedMessage id="cookies.completed.msg" />&nbsp;&nbsp;
+                  <ButtonCookie><FormattedMessage id="cookies.completed.msg.action" /></ButtonCookie>
                 </RemoveCookie>
             </div>
           )
@@ -160,13 +163,14 @@ const BannerComponent = ({ urlPrefix }) => {
         
         <div className="col-xs-12 col-md-7">
           <div>
-            <HighlightTitle>COVID-19:</HighlightTitle>
+            <HighlightTitle><FormattedMessage id="covid.text" /></HighlightTitle>
             <Title marginTop="5px" marginBottom="10px" max="10" min="25" textAlign="left" color="white">
               <FormattedMessage id="banner.leftSection.title" />
             </Title>
-            <Description textAlign="left" color="white" max="10" min="18">
-              Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever
-              since the 1500s.
+            <Description textAlign="left" color="white" max="10" min="18" customClass={customDescription}>
+              <FormattedMessage id="banner.leftSection.desription1" />
+              <SepareteSpan/>
+              <FormattedMessage id="banner.leftSection.desription2" />
             </Description>
           </div>
         </div>
@@ -176,11 +180,10 @@ const BannerComponent = ({ urlPrefix }) => {
               <FormattedMessage id="banner.rightSection.title" />
             </Title> */}
             <Description textAlign="left" color="#5d6970" max="10" min="14">
-              This assessment <span css={alertSpan}>is not a substitute for professional medical advice</span>, 
-              diagnosis or treatment. This assessment aims to <span css={successSpan}>guide you to the right next steps to take</span>, based on the severity of your symptoms and your location.
+              <FormattedMessage id="banner.rigthSection.description1" />
             </Description>
             <Description marginTop="5px" textAlign="left" color="#5d6970" max="10" min="14">
-              The COVID-19 Coronavirus is a new disease and we continue to learn more every day. If you think you may have a life threatening emergency, immediately call your doctor or dial 911.
+              <FormattedMessage id="banner.rigthSection.description2" />
             </Description>
             <CaptchaContainer>
               <ReCAPTCHA
@@ -197,7 +200,7 @@ const BannerComponent = ({ urlPrefix }) => {
                 callback={goto}
                 disabled={!isValidRecaptcha || mindsDBCovidState === 'completed'}
               >
-                START CENSUS
+                <FormattedMessage id="banner.rigthSection.button" />
               </Button>
             </ButtonContainer>
           </DivContainer>

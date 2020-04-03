@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import { FormattedMessage } from 'react-intl'
 
 import Title from '@/components/ui/Title'
 import validate from './validate'
@@ -65,7 +66,7 @@ const WizardFormFirstPage = props => {
           backgroundColor={Colors.lightGreen}
           backgroundColorHover={Colors.white}
         >
-          Next Question
+          <FormattedMessage id="wizard.next.button" />
         </Button>
       </ButtonContainer>
     </Form>

@@ -2,6 +2,7 @@ import React from 'react'
 import { Field, reduxForm } from 'redux-form'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
+import { FormattedMessage } from 'react-intl'
 
 import validate from './validate'
 import renderField from './renderField'
@@ -19,10 +20,6 @@ const Form = styled.form`
 const RadioContainer = styled.div`
   display: flex;
   flex-direction: column;
-
-  span {
-    color: ${Colors.burntSienna};
-  }
 `
 const RadioOptions = styled.div`
   margin: 40px auto;
@@ -73,9 +70,14 @@ const QuestionContainer = styled.div`
     font-size: 32px;
   }
 `
+const RequieredSpan = styled.p`
+  font-size: 18px;
+  font-weight: 900;
+  color: ${Colors.burntSienna};
+`
 
 const renderError = ({ meta: { touched, error } }) =>
-  touched && error ? <span>{error}</span> : false
+  touched && error ? <RequieredSpan>{error}</RequieredSpan> : false
 
 const WizardFormDynamicPage = props => {
   const {
@@ -139,7 +141,7 @@ const WizardFormDynamicPage = props => {
           backgroundColorHover={Colors.white}
           callback={previousPage}
         >
-          Previous Question
+         <FormattedMessage id="wizard.previous.button" />
         </Button>
         <Button
           type="submit"
@@ -150,8 +152,8 @@ const WizardFormDynamicPage = props => {
         >
           {
             stepProps.isLastStep
-              ? 'Submit'
-              : 'Next Question'
+              ? <FormattedMessage id="wizard.submit.button" />
+              : <FormattedMessage id="wizard.next.button" />
           }
         </Button>
       </ButtonContainer>

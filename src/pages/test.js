@@ -4,6 +4,7 @@ import { StaticQuery, graphql } from 'gatsby'
 import BackgroundImage from 'gatsby-background-image'
 import firebase from 'gatsby-plugin-firebase'
 import { reset } from 'redux-form'
+import { FormattedMessage } from 'react-intl'
 import Cookies from 'js-cookie';
 
 import Button from '@/components/ui/Button'
@@ -123,7 +124,8 @@ const TestPage = () => {
           <div className="row">
             <div className="col-xs-12 col-md-12">
               <Title marginTop="60px"  max="10" min="28" color="white">
-                <HighlightTitle>COVID-19:</HighlightTitle> FLATTEN THE CURVE IN YOUR CITY
+                <HighlightTitle><FormattedMessage id="covid.text" /></HighlightTitle>
+                <FormattedMessage id="banner.leftSection.title" />
               </Title>
             </div>
             <div className="col-xs-12 col-md-12">
@@ -138,13 +140,15 @@ const TestPage = () => {
                   : (
                     <WizardContainer>
                       <Title marginTop="40px" marginBottom="40px" max="10" min="20">
-                        We Don’t Have Enought Information On Your Location to Provide Futher Insights.  
+                        <FormattedMessage id="wizard.finish.title" />  
                       </Title>
                       <Description>
-                        Please help us by sharing this to your neighbors and friends all over the world, rememember all data gather here is available at:
+                        <FormattedMessage id="wizard.finish.description" />
                       </Description>
                       <Title marginTop="50px" marginBottom="30px" max="10" min="28" color="black">
-                          THANKS FOR HELPING <ThanksColor>SAVE</ThanksColor> LIVES
+                        <FormattedMessage id="wizard.finish.description.strong.part1" /> 
+                        <ThanksColor><FormattedMessage id="wizard.finish.description.strong.part2" /></ThanksColor> 
+                        <FormattedMessage id="wizard.finish.description.strong.part3" />
                       </Title>
                       <ButtonContainer>
                         <Button
@@ -153,7 +157,7 @@ const TestPage = () => {
                           backgroundColor={Colors.lightGreen}
                           backgroundColorHover={Colors.white}
                         >
-                          SHARE LINK
+                          <FormattedMessage id="wizard.finish.button" />
                         </Button>
                       </ButtonContainer>
                     </WizardContainer>
