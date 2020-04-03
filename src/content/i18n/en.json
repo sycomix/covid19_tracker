@@ -29,6 +29,9 @@
   "howprotect.right.title.button2": "HOW DOES THIS WORK",
 
   "footer.minds.title": "Policies",
+  "footer.minds.link1": "Privacy Policy",
+  "footer.minds.link2": "Cookies Policy",
+  "footer.minds.link3": "Terms",
   "footer.minds.description.email": "support@mindsdb.com",
 
   "wizard.next.button": "NEXT QUESTION",

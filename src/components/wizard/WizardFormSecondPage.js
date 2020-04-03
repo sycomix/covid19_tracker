@@ -31,7 +31,7 @@ const ButtonContainer = styled.div`
   `)}
 `
 
-const WizardFormFirstPage = props => {
+const WizardFormSecondPage = props => {
   const { handleSubmit } = props
   return (
     <Form onSubmit={handleSubmit}>
@@ -78,4 +78,4 @@ export default reduxForm({
   destroyOnUnmount: false, // <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
   validate
-})(WizardFormFirstPage)
+})(WizardFormSecondPage)

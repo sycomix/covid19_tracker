@@ -124,7 +124,7 @@ const TestPage = () => {
           <div className="row">
             <div className="col-xs-12 col-md-12">
               <Title marginTop="60px"  max="10" min="28" color="white">
-                <HighlightTitle><FormattedMessage id="covid.text" /></HighlightTitle>
+                <HighlightTitle><FormattedMessage id="covid.text" /></HighlightTitle>&nbsp;
                 <FormattedMessage id="banner.leftSection.title" />
               </Title>
             </div>

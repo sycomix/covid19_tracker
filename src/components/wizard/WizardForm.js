@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 
-import WizardFormFirstPage from './WizardFormFirstPage'
+import WizardFormSecondPage from './WizardFormSecondPage'
 import WizardFormDynamicPage from './WizardFormDynamicPage'
 import { questions } from './questions.json'
 
@@ -36,7 +36,7 @@ const WizardForm = (props) => {
 
   return (
     <>
-      {page === 1 && <WizardFormFirstPage onSubmit={nextPage} />}
+      {page === 1 && <WizardFormSecondPage onSubmit={nextPage} />}
       {getDynamicStep()}
     </>
   )

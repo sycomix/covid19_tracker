@@ -43,9 +43,21 @@ const Footer = (props) => {
             <div className="col-xs-12 col-md-12">
               <strong><FormattedMessage id="footer.minds.title" /></strong>
               <FooterList>
-                <li><Href href="">Privacy Policy</Href></li>
-                <li><Href href="">Cookies Policy</Href></li>
-                <li><Href href="">Terms</Href></li>
+                <li>
+                  <Href href="">
+                    <FormattedMessage id="footer.minds.link1" />
+                  </Href>
+                </li>
+                <li>
+                  <Href href="">
+                    <FormattedMessage id="footer.minds.link2" />
+                  </Href>
+                </li>
+                <li>
+                  <Href href="">
+                    <FormattedMessage id="footer.minds.link3" />
+                  </Href>
+                </li>
               </FooterList>
             </div>
             <div className="col-xs-6 col-md-10">

@@ -134,6 +134,7 @@ const BannerComponent = ({ urlPrefix }) => {
 
   const clearCookies = (e) => {
     e.preventDefault()
+    e.stopPropagation()
     Cookies.set('mindsDBCovid', '')
     setMindsDBCovid('')
   }
