@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { FormattedMessage } from 'react-intl'
+import ReCAPTCHA from 'react-google-recaptcha'
 
 import Title from '@/components/ui/Title'
 import validate from './validate'
@@ -17,6 +18,15 @@ const Form = styled.form`
     border-radius: 3px;
     border: 1px solid ${Colors.silver};
   }
+`
+const CaptchaContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+
+  ${mq.md(css`
+    margin-top: 30px;
+  `)}
 `
 const ButtonContainer = styled.div`
   display: flex;
@@ -42,11 +52,18 @@ const ButtonContainer = styled.div`
 const WizardFormSecondPage = props => {
   const { 
     handleSubmit, 
-    previousPage 
+    previousPage,
+    feeling,
+    end
   } = props
 
+  const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
+  const onRecaptchaValidated = (recaptchaToken) => {
+    setIsValidRecaptcha(!!recaptchaToken)
+  }
+
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={feeling ? end : handleSubmit}>
        <Title marginBottom="30px" max="10" min="25" color="black">
         WHERE ARE YOU LOCATED?
       </Title>
@@ -71,6 +88,15 @@ const WizardFormSecondPage = props => {
         label={<strong>Neighborhood:</strong>}
         placeholder="Enter a Neighborhood"
       />
+      {
+        feeling &&
+          <CaptchaContainer>
+            <ReCAPTCHA
+              sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
+              onChange={onRecaptchaValidated}
+            />
+          </CaptchaContainer>
+      }
       <ButtonContainer>  
         <Button
           stylesType="common"
@@ -85,8 +111,14 @@ const WizardFormSecondPage = props => {
           stylesType="common"
           backgroundColor={Colors.lightGreen}
           backgroundColorHover={Colors.white}
+          disabled={feeling && !isValidRecaptcha}
         >
-          <FormattedMessage id="wizard.next.button" />
+          {
+            feeling ?
+              <FormattedMessage id="wizard.submit.button" />
+            :
+              <FormattedMessage id="wizard.next.button" />
+          }
         </Button>
       </ButtonContainer>
     </Form>

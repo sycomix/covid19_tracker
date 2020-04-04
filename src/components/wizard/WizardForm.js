@@ -10,8 +10,14 @@ const WizardForm = (props) => {
   const { onSubmit } = props
 
   const [page, setPage] = useState(1);
+  const [feeling, setFeeling] = useState(false);
 
-  const nextPage = () => {
+  const nextPage = (values) => {
+
+    if(values && values.feeling) {
+      setFeeling( values.feeling === 'Great' ? true : false)
+    }
+    
     setPage(page + 1)
   }
 
@@ -38,7 +44,7 @@ const WizardForm = (props) => {
   return (
     <>
       {page === 1 && <WizardFormFirstPage onSubmit={nextPage} />}
-      {page === 2 && <WizardFormSecondPage previousPage={previousPage} onSubmit={nextPage} />}
+      {page === 2 && <WizardFormSecondPage end={onSubmit} feeling={feeling} previousPage={previousPage} onSubmit={nextPage} />}
       {getDynamicStep()}
     </>
   )
