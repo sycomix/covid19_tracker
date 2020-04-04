@@ -1,16 +1,16 @@
-import React, { useState } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import { FormattedMessage } from 'react-intl'
-import ReCAPTCHA from 'react-google-recaptcha'
+import React, { useState } from "react"
+import { Field, reduxForm } from "redux-form"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+import { FormattedMessage } from "react-intl"
+import ReCAPTCHA from "react-google-recaptcha"
 
-import Title from '@/components/ui/Title'
-import validate from './validate'
-import renderField from './renderField'
-import { Colors } from '@/components/layouts/utils/theme'
-import Button from '@/components/ui/Button'
-import { mq } from '@/components/layouts/utils/base'
+import Title from "@/components/ui/Title"
+import validate from "./validate"
+import renderField from "./renderField"
+import { Colors } from "@/components/layouts/utils/theme"
+import Button from "@/components/ui/Button"
+import { mq } from "@/components/layouts/utils/base"
 
 const Form = styled.form`
   input {
@@ -50,21 +50,16 @@ const ButtonContainer = styled.div`
 `
 
 const WizardFormSecondPage = props => {
-  const { 
-    handleSubmit, 
-    previousPage,
-    feeling,
-    end
-  } = props
+  const { handleSubmit, previousPage, feeling } = props
 
   const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
-  const onRecaptchaValidated = (recaptchaToken) => {
+  const onRecaptchaValidated = recaptchaToken => {
     setIsValidRecaptcha(!!recaptchaToken)
   }
 
   return (
-    <Form onSubmit={feeling ? end : handleSubmit}>
-       <Title marginBottom="30px" max="10" min="25" color="black">
+    <Form onSubmit={handleSubmit}>
+      <Title marginBottom="30px" max="10" min="25" color="black">
         WHERE ARE YOU LOCATED?
       </Title>
       <Field
@@ -88,23 +83,22 @@ const WizardFormSecondPage = props => {
         label={<strong>Neighborhood:</strong>}
         placeholder="Enter a Neighborhood"
       />
-      {
-        feeling &&
-          <CaptchaContainer>
-            <ReCAPTCHA
-              sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
-              onChange={onRecaptchaValidated}
-            />
-          </CaptchaContainer>
-      }
-      <ButtonContainer>  
+      {feeling && (
+        <CaptchaContainer>
+          <ReCAPTCHA
+            sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
+            onChange={onRecaptchaValidated}
+          />
+        </CaptchaContainer>
+      )}
+      <ButtonContainer>
         <Button
           stylesType="common"
           backgroundColor="#fedc8c"
           backgroundColorHover={Colors.white}
           callback={previousPage}
         >
-         <FormattedMessage id="wizard.previous.button" />
+          <FormattedMessage id="wizard.previous.button" />
         </Button>
         <Button
           type="submit"
@@ -113,12 +107,11 @@ const WizardFormSecondPage = props => {
           backgroundColorHover={Colors.white}
           disabled={feeling && !isValidRecaptcha}
         >
-          {
-            feeling ?
-              <FormattedMessage id="wizard.submit.button" />
-            :
-              <FormattedMessage id="wizard.next.button" />
-          }
+          {feeling ? (
+            <FormattedMessage id="wizard.submit.button" />
+          ) : (
+            <FormattedMessage id="wizard.next.button" />
+          )}
         </Button>
       </ButtonContainer>
     </Form>
@@ -126,8 +119,8 @@ const WizardFormSecondPage = props => {
 }
 
 export default reduxForm({
-  form: 'wizard', // <------ same form name
+  form: "wizard", // <------ same form name
   destroyOnUnmount: false, // <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardFormSecondPage)

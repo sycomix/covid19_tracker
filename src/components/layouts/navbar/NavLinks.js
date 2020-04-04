@@ -1,7 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { Link } from 'gatsby'
+import Cookies from 'js-cookie';
+import { FormattedMessage } from 'react-intl'
 
 import { mq } from '@/components/layouts/utils/base'
 import { Colors } from '@/components/layouts/utils/theme'
@@ -33,6 +35,33 @@ const Slide = styled.div`
     margin-right: 0;
   }
 `
+const RemoveCookie = styled.div`
+  z-index:9999999;
+  width: 100%;
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+  background: #e65a64;
+  color: white;
+  padding: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  ${mq.md(css`
+    width: 80%;
+    margin-top: 0;
+  `)}
+`
+const ButtonCookie = styled.button`
+  cursor: pointer;
+  background: transparent;
+  color: white;
+  text-decoration: underline;
+  text-decoration-color: white;
+  &:hover {
+    font-weight:900;
+  }
+`
 const Item = styled.span`
   margin: 0 10px;
   border-bottom: 1px solid transparent;
@@ -43,20 +72,22 @@ const Item = styled.span`
 
   a {
     cursor: pointer;
-    color: ${Colors.mirage};
+    color: ${Colors.white};
     text-decoration: none;
     font-weight: 400;
 
     &:hover {
-      color: ${Colors.lightGreen};
-      border-bottom: 1px solid ${Colors.lightGreen};
+      color: ${Colors.white};
+      font-weight: 900;
+      border-bottom: 1px solid ${Colors.white};
     }
   }
 
   &.selected {
     a {
-      color: ${Colors.lightGreen};
-      border-bottom: 1px solid ${Colors.lightGreen};
+      color: ${Colors.white};
+      font-weight: 900;
+      border-bottom: 1px solid ${Colors.white};
     }
   }
 `
@@ -64,7 +95,26 @@ const Item = styled.span`
 const NavLinks = (props) => {
   const { locale } = props
 
+  const mindsDBCovid = Cookies.get('mindsDBCovid')
+  const [mindsDBCovidState, setMindsDBCovid] = useState(mindsDBCovid)
+
+  const clearCookies = (e) => {
+    e.preventDefault()
+    e.stopPropagation()
+    Cookies.set('mindsDBCovid', '')
+    setMindsDBCovid('')
+  }
+
   return (
+    <>
+    {
+      mindsDBCovidState === 'completed' && (
+        <RemoveCookie onClick={(e) => clearCookies(e)}>
+          <FormattedMessage id="cookies.completed.msg" />&nbsp;&nbsp;
+          <ButtonCookie><FormattedMessage id="cookies.completed.msg.action" /></ButtonCookie>
+        </RemoveCookie>
+      )
+    }
     <Slider>
       {Object.keys(locales).map((key, idx) => (
         <Slide key={idx}>
@@ -76,6 +126,7 @@ const NavLinks = (props) => {
         </Slide>
       ))}
     </Slider>
+    </>
   )
 }
 

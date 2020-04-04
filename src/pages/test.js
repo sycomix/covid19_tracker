@@ -50,9 +50,11 @@ const BackgroundContainer = styled(BackgroundContent)`
   width: 100%;
   height: 90vh;
   background-repeat: repeat-y;
+  margin-bottom: 10px;
 
   ${mq.md(css`
-    height: 50vh;
+    height: 70vh;
+    margin-bottom: 60px;
   `)}
 `
 const Description = styled.p`
@@ -95,6 +97,7 @@ const ButtonContainer = styled.div`
 
 const TestPage = () => {
   const [showForm, setShowForm] = useState(true)
+  const [likCopied, setlikCopied] = useState(false)
 
   const setAnswerData = async (values, dispatch) => {
     if (values) {
@@ -114,6 +117,11 @@ const TestPage = () => {
         dispatch(reset('wizard'))
       } 
     }
+  }
+
+  const copyTextToClipboard = () => {
+    navigator.clipboard.writeText(window.location.host)
+    setlikCopied(true)
   }
 
   return (
@@ -156,9 +164,11 @@ const TestPage = () => {
                           stylesType="common"
                           backgroundColor={Colors.lightGreen}
                           backgroundColorHover={Colors.white}
+                          callback={copyTextToClipboard}
                         >
                           <FormattedMessage id="wizard.finish.button" />
-                        </Button>
+                        </Button>&nbsp;
+                        {likCopied && <strong>Copied!</strong>}
                       </ButtonContainer>
                     </WizardContainer>
                   )

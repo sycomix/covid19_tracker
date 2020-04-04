@@ -1,8 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { get } from 'lodash'
-import { useStaticQuery, graphql } from 'gatsby'
-import Img from 'gatsby-image'
+// import { useStaticQuery, graphql } from 'gatsby'
+// import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
@@ -10,13 +10,13 @@ import { css } from '@emotion/core'
 import { mq } from '@/components/layouts/utils/base'
 import NavLinks from './NavLinks'
 import { Colors } from '@/components/layouts/utils/theme'
-import { LocalizedLink } from '@/components/ui/LocalizedLink'
+// import { LocalizedLink } from '@/components/ui/LocalizedLink'
 
 const NavBarContainer = styled.header`
   z-index: 10000;
-  background-color: ${Colors.white};
+  background-color: transparent;
   height: 100px;
-  position: fixed;
+  position: absolute;
   width: 100%;
   top: 0;
   left: 0;
@@ -26,7 +26,7 @@ const NavBarContainer = styled.header`
   `)}
 `
 const Container = styled.div`
-  margin: 20px auto;
+  margin: 0 auto;
   padding: 10px 20px;
   padding-bottom: 10px;
   color: ${Colors.mirage};
@@ -34,15 +34,15 @@ const Container = styled.div`
 
   ${mq.md(css`
     margin: 0px auto;
-    max-width: 83%;
+    max-width: 80%;
   `)}
 `
-const link = css`
-  color: ${Colors.white};
-  text-decoration: none;
-  font-weight: 400;
-  text-transform: lowercase;
-`
+// const link = css`
+//   color: ${Colors.white};
+//   text-decoration: none;
+//   font-weight: 400;
+//   text-transform: lowercase;
+// `
 const Header = styled.div`
   display: flex;
   flex-direction: row;
@@ -56,25 +56,25 @@ const Header = styled.div`
   `)}
 `
 
-const ImageContainer = styled.div`
-  width: 150px;
-`
+// const ImageContainer = styled.div`
+//   width: 150px;
+// `
 
-const LogoImage = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "logo.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 250) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
+// const LogoImage = () => {
+//   const data = useStaticQuery(graphql`
+//     query {
+//       placeholderImage: file(relativePath: { eq: "logo.png" }) {
+//         childImageSharp {
+//           fluid(maxWidth: 250) {
+//             ...GatsbyImageSharpFluid
+//           }
+//         }
+//       }
+//     }
+//   `)
 
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-}
+//   return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
+// }
 
 const NavBar = (props) => {
   const {
@@ -87,11 +87,11 @@ const NavBar = (props) => {
     <NavBarContainer>
       <Container>
         <Header>
-          <ImageContainer>
+          {/* <ImageContainer>
             <LocalizedLink to="/" css={link}>
               <LogoImage/>
             </LocalizedLink>
-          </ImageContainer>
+          </ImageContainer> */}
           {
             !isMobPad
               ? <NavLinks location={location} locale={locale} />

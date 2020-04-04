@@ -51,7 +51,7 @@ const BackgroundContainer = styled(BackgroundContent)`
   background-repeat: repeat-y;
 
   ${mq.md(css`
-    height: 50vh;
+    height: 60vh;
   `)}
 `
 const HighlightTitle = styled.h2`
@@ -78,7 +78,7 @@ const DivContainer = styled.div`
 
   ${mq.md(css`
     height: 500px;
-    margin-top: 30px;
+    margin-top: 70px;
     margin-bottom: 20px;
   `)}
 `
@@ -99,25 +99,6 @@ const CaptchaContainer = styled.div`
     margin-top: 30px;
   `)}
 `
-const RemoveCookie = styled.div`
-  display: flex;
-  justify-content: center;
-  background: #e65a64;
-  color: white;
-  padding: 10px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-`
-const ButtonCookie = styled.button`
-  cursor: pointer;
-  background: transparent;
-  color: white;
-  text-decoration: underline;
-  text-decoration-color: white;
-  &:hover {
-    font-weight:900;
-  }
-`
 const customDescription = css`
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   font-weight: bold;
@@ -132,15 +113,8 @@ const BannerComponent = ({ urlPrefix }) => {
     navigate(`${urlPrefix}/test`)
   }
 
-  const clearCookies = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    Cookies.set('mindsDBCovid', '')
-    setMindsDBCovid('')
-  }
-
   const mindsDBCovid = Cookies.get('mindsDBCovid')
-  const [mindsDBCovidState, setMindsDBCovid] = useState(mindsDBCovid)
+  const [mindsDBCovidState] = useState(mindsDBCovid)
   const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
   const onRecaptchaValidated = (recaptchaToken) => {
     setIsValidRecaptcha(!!recaptchaToken)
@@ -150,18 +124,6 @@ const BannerComponent = ({ urlPrefix }) => {
   <BackgroundContainer>
     <div className="container">
       <div className="row">
-
-        {
-          mindsDBCovidState === 'completed' && (
-            <div className="col-xs-12">
-                <RemoveCookie onClick={(e) => clearCookies(e)}>
-                  <FormattedMessage id="cookies.completed.msg" />&nbsp;&nbsp;
-                  <ButtonCookie><FormattedMessage id="cookies.completed.msg.action" /></ButtonCookie>
-                </RemoveCookie>
-            </div>
-          )
-        }
-        
         <div className="col-xs-12 col-md-7">
           <div>
             <HighlightTitle><FormattedMessage id="covid.text" /></HighlightTitle>
