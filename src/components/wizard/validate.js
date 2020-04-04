@@ -1,6 +1,8 @@
 const validate = values => {
   const errors = {}
-
+  if (!values.feeling) {
+    errors.feeling = 'Required'
+  }
   if (!values.country) {
     errors.country = 'Required'
   }

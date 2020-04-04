@@ -20,19 +20,31 @@ const Form = styled.form`
 `
 const ButtonContainer = styled.div`
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 20px;
 
-  
   ${mq.sm(css`
-    justify-content: flex-end;
-    margin: 40px 0px -30px 0px;
+    flex-direction: row;
   `)}
+
+  button:last-child {
+    margin-top: 10px;
+
+    ${mq.sm(css`
+      margin-top: 0px;
+      margin-left: 10px;
+    `)}
+  }
 `
 
 const WizardFormSecondPage = props => {
-  const { handleSubmit } = props
+  const { 
+    handleSubmit, 
+    previousPage 
+  } = props
+
   return (
     <Form onSubmit={handleSubmit}>
        <Title marginBottom="30px" max="10" min="25" color="black">
@@ -59,7 +71,15 @@ const WizardFormSecondPage = props => {
         label={<strong>Neighborhood:</strong>}
         placeholder="Enter a Neighborhood"
       />
-      <ButtonContainer>
+      <ButtonContainer>  
+        <Button
+          stylesType="common"
+          backgroundColor="#fedc8c"
+          backgroundColorHover={Colors.white}
+          callback={previousPage}
+        >
+         <FormattedMessage id="wizard.previous.button" />
+        </Button>
         <Button
           type="submit"
           stylesType="common"

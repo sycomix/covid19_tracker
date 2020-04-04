@@ -1,7 +1,7 @@
 {
   "questions": [
     {
-      "page": 2,
+      "page": 3,
       "question": "What is you gender?",
       "name": "gender",
       "type": "radio",
@@ -11,7 +11,7 @@
       ]
     },
     {
-      "page": 3,
+      "page": 4,
       "question": "Are you smoker?",
       "name": "smoker",
       "type": "radio",
@@ -21,7 +21,7 @@
       ]
     },
     {
-      "page": 4,
+      "page": 5,
       "question": "Do you have hypertension?",
       "name": "hypertension",
       "type": "radio",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "page": 5,
+      "page": 6,
       "question": "Do you have diabetes?",
       "name": "diabetes",
       "type": "radio",
@@ -41,7 +41,7 @@
       ]
     },
     {
-      "page": 6,
+      "page": 7,
       "question": "Do you have coronary heart desease?",
       "name": "coronaryHeartDesease",
       "type": "radio",
@@ -51,7 +51,7 @@
       ]
     },
     {
-      "page": 7,
+      "page": 8,
       "question": "Do you have fatigue?",
       "name": "fatigue",
       "type": "radio",
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "page": 8,
+      "page": 9,
       "question": "Do you have breathing problems?",
       "name": "breathingProblems",
       "type": "radio",
@@ -71,7 +71,7 @@
       ]
     },
     {
-      "page": 9,
+      "page": 10,
       "question": "Do you have cough?",
       "name": "cough",
       "type": "radio",
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "page": 10,
+      "page": 11,
       "question": "Do you have sputum?",
       "name": "sputum",
       "type": "radio",
@@ -91,21 +91,21 @@
       ]
     },
     {
-      "page": 11,
+      "page": 12,
       "question": "Respiratory rate > 24 Breaths per min?",
       "name": "respiratoryRate",
       "placeholder": "Respiratory Rate",
       "type": "number"
     },
     {
-      "page": 12,
+      "page": 13,
       "question": "Fever (Temperature ≥ 37·3°C) ?",
       "name": "fever",
       "placeholder": "Fever Temperature",
       "type": "number"
     },
     {
-      "page": 13,
+      "page": 14,
       "question": "Do you have myalgia?",
       "name": "myalgia",
       "type": "radio",
@@ -115,7 +115,7 @@
       ]
     },
     {
-      "page": 14,
+      "page": 15,
       "question": "Do you have nausea or vomiting?",
       "name": "nausea",
       "type": "radio",
@@ -125,7 +125,7 @@
       ]
     },
     {
-      "page": 15,
+      "page": 16,
       "question": "Do you have diarrhoea?",
       "name": "diarrhoea",
       "type": "radio",
@@ -135,7 +135,7 @@
       ]
     },
     {
-      "page": 16,
+      "page": 17,
       "question": "Are you exposed?",
       "name": "exposed",
       "type": "radio",
