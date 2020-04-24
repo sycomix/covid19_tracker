@@ -89,6 +89,13 @@ const ButtonContainer = styled.div`
   ${mq.md(css`
     margin: 30px auto;
   `)}
+
+  /* button {
+    width: 185px;
+    height: 32px;
+    font-size: 12px;
+    border-radius: 7px;
+  } */
 `
 const CaptchaContainer = styled.div`
   display: flex;

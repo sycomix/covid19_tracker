@@ -43,6 +43,15 @@ const CustomButton = styled.button`
       fill: ${props => props.fillIconColor || Colors.white};
     }
   }
+
+  a {
+    text-decoration: none;
+    color: ${Colors.white};
+
+    &:hover {
+      color: ${Colors.lightGreen};
+    }
+  }
 `
 const common = css`
   width: 200px;

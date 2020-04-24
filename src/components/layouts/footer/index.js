@@ -10,7 +10,7 @@ import { Colors } from '@/components/layouts/utils/theme'
 const Container = styled.footer`
   width: 100%;
   height: 200px;
-  color: ${Colors.mirage};
+  color: rgba(93, 105, 112, 50);
 `
 const BottomContainer = styled.div`
   height: 80px;
