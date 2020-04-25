@@ -70,7 +70,7 @@ const HowProtect = () => {
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
               <FormattedMessage id="howprotect.washyourhands.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description textAlign="left" color={Colors.mirage} max="10" min="16">
               <FormattedMessage id="howprotect.washyourhands.description" />
             </Description>
           </div>
@@ -78,7 +78,7 @@ const HowProtect = () => {
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
               <FormattedMessage id="howprotect.dontouchyourface.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description textAlign="left" color={Colors.mirage} max="10" min="16">
               <FormattedMessage id="howprotect.dontouchyourface.description" />
             </Description>
           </div>
@@ -86,7 +86,7 @@ const HowProtect = () => {
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
               <FormattedMessage id="howprotect.avoid.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description textAlign="left" color={Colors.mirage} max="10" min="16">
               <FormattedMessage id="howprotect.avoid.description" />
             </Description>
           </div>
@@ -94,7 +94,7 @@ const HowProtect = () => {
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
               <FormattedMessage id="howprotect.respitory.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description textAlign="left" color={Colors.mirage} max="10" min="16">
               <FormattedMessage id="howprotect.respitory.description" />
             </Description>
           </div>
@@ -102,7 +102,7 @@ const HowProtect = () => {
             <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
               <FormattedMessage id="howprotect.cough.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description textAlign="left" color={Colors.mirage} max="10" min="16">
               <FormattedMessage id="howprotect.cough.description" />
             </Description>
           </div>
@@ -115,7 +115,7 @@ const HowProtect = () => {
                 <FormattedMessage id="howprotect.right.title.part1" /> <strong> <FormattedMessage id="howprotect.right.title.part2" /></strong>  <FormattedMessage id="howprotect.right.title.part3" />
               </div>
             </Title>
-            <Description textAlign="center" color="black" max="10" min="16">
+            <Description textAlign="center" color={Colors.mirage} max="10" min="16">
               <FormattedMessage id="howprotect.right.description" />
             </Description>
             <ButtonContainer>

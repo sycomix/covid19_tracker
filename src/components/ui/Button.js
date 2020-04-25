@@ -36,6 +36,10 @@ const CustomButton = styled.button`
         fill: ${props => props.fillIconColorHover || Colors.white};
       }
     }
+
+    a {
+      color: ${Colors.lightGreen};
+    }
   }
 
   svg {
@@ -109,7 +113,7 @@ const Button = (props) => {
     <CustomButton
       {...props}
       css={buttonStylesType[stylesType] || customClass}
-      onClick={() => disabled ? () => {} : callback && callback()}
+      onClick={() => disabled ? () => { } : callback && callback()}
       aria-label={ariaLabel}
       fillIconColor={fillIconColor}
       fillIconColorHover={fillIconColorHover}
