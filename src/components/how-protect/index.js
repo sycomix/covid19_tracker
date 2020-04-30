@@ -1,13 +1,13 @@
-import React from 'react'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import { FormattedMessage } from 'react-intl'
+import React from "react"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+import { FormattedMessage } from "react-intl"
 
-import { mq } from '@/components/layouts/utils/base'
-import { Colors } from '@/components/layouts/utils/theme'
-import Title from '@/components/ui/Title'
-import Button from '@/components/ui/Button'
-import Description from '@/components/ui/Description'
+import { mq } from "@/components/layouts/utils/base"
+import { Colors } from "@/components/layouts/utils/theme"
+import Title from "@/components/ui/Title"
+import Button from "@/components/ui/Button"
+import Description from "@/components/ui/Description"
 
 const StrongColor = css`
   color: ${Colors.lightGreen};
@@ -22,7 +22,7 @@ const InformedContainer = styled.div`
 
   .title-informed {
     background: ${Colors.lightGreen};
-    width: 270px;
+    width: 310px;
     margin: 0 auto;
 
     strong {
@@ -53,13 +53,21 @@ const ButtonContainer = styled.div`
 `
 
 const HowProtect = () => {
-
   return (
     <div className="container">
       <div className="row">
         <div className="col-xs-12 col-md-6">
-          <Title marginTop="40px" marginBottom="20px" max="8" min="28" textAlign="left">
-            <FormattedMessage id="howprotect.title" /> <strong css={StrongColor}><FormattedMessage id="howprotect.title.cure" /></strong>
+          <Title
+            marginTop="40px"
+            marginBottom="20px"
+            max="8"
+            min="28"
+            textAlign="left"
+          >
+            <FormattedMessage id="howprotect.title" />{" "}
+            <strong css={StrongColor}>
+              <FormattedMessage id="howprotect.title.cure" />
+            </strong>
           </Title>
         </div>
       </div>
@@ -67,42 +75,97 @@ const HowProtect = () => {
       <div className="row">
         <div className="col-xs-12 col-md-7">
           <div css={marginDiv}>
-            <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
+            <Title
+              marginTop="10px"
+              marginBottom="10px"
+              max="8"
+              min="20"
+              textAlign="left"
+            >
               <FormattedMessage id="howprotect.washyourhands.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description
+              textAlign="left"
+              color={Colors.mirage}
+              max="10"
+              min="16"
+            >
               <FormattedMessage id="howprotect.washyourhands.description" />
             </Description>
           </div>
           <div css={marginDiv}>
-            <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
+            <Title
+              marginTop="10px"
+              marginBottom="10px"
+              max="8"
+              min="20"
+              textAlign="left"
+            >
               <FormattedMessage id="howprotect.dontouchyourface.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description
+              textAlign="left"
+              color={Colors.mirage}
+              max="10"
+              min="16"
+            >
               <FormattedMessage id="howprotect.dontouchyourface.description" />
             </Description>
           </div>
           <div css={marginDiv}>
-            <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
+            <Title
+              marginTop="10px"
+              marginBottom="10px"
+              max="8"
+              min="20"
+              textAlign="left"
+            >
               <FormattedMessage id="howprotect.avoid.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description
+              textAlign="left"
+              color={Colors.mirage}
+              max="10"
+              min="16"
+            >
               <FormattedMessage id="howprotect.avoid.description" />
             </Description>
           </div>
           <div css={marginDiv}>
-            <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
+            <Title
+              marginTop="10px"
+              marginBottom="10px"
+              max="8"
+              min="20"
+              textAlign="left"
+            >
               <FormattedMessage id="howprotect.respitory.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description
+              textAlign="left"
+              color={Colors.mirage}
+              max="10"
+              min="16"
+            >
               <FormattedMessage id="howprotect.respitory.description" />
             </Description>
           </div>
           <div css={marginDiv}>
-            <Title marginTop="10px" marginBottom="10px" max="8" min="20" textAlign="left">
+            <Title
+              marginTop="10px"
+              marginBottom="10px"
+              max="8"
+              min="20"
+              textAlign="left"
+            >
               <FormattedMessage id="howprotect.cough.title" />
             </Title>
-            <Description textAlign="left" color="black" max="10" min="16">
+            <Description
+              textAlign="left"
+              color={Colors.mirage}
+              max="10"
+              min="16"
+            >
               <FormattedMessage id="howprotect.cough.description" />
             </Description>
           </div>
@@ -110,12 +173,28 @@ const HowProtect = () => {
         </div>
         <div className="col-xs-12 col-md-5">
           <InformedContainer>
-            <Title marginTop="10px" marginBottom="20px" max="8" min="28" textAlign="center">
+            <Title
+              marginTop="10px"
+              marginBottom="20px"
+              max="8"
+              min="28"
+              textAlign="center"
+            >
               <div className="title-informed">
-                <FormattedMessage id="howprotect.right.title.part1" /> <strong> <FormattedMessage id="howprotect.right.title.part2" /></strong>  <FormattedMessage id="howprotect.right.title.part3" />
+                <FormattedMessage id="howprotect.right.title.part1" />{" "}
+                <strong>
+                  {" "}
+                  <FormattedMessage id="howprotect.right.title.part2" />
+                </strong>{" "}
+                <FormattedMessage id="howprotect.right.title.part3" />
               </div>
             </Title>
-            <Description textAlign="center" color="black" max="10" min="16">
+            <Description
+              textAlign="center"
+              color={Colors.mirage}
+              max="10"
+              min="16"
+            >
               <FormattedMessage id="howprotect.right.description" />
             </Description>
             <ButtonContainer>
@@ -145,7 +224,7 @@ const HowProtect = () => {
           </InformedContainer>
         </div>
       </div>
-    </div >
+    </div>
   )
 }
 

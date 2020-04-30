@@ -1,18 +1,18 @@
-import React, { useState } from 'react'
-import styled from '@emotion/styled'
-import BackgroundImage from 'gatsby-background-image'
-import { StaticQuery, graphql, navigate } from 'gatsby'
-import ReCAPTCHA from 'react-google-recaptcha'
-import { FormattedMessage } from 'react-intl'
-import Cookies from 'js-cookie';
+import React, { useState } from "react"
+import styled from "@emotion/styled"
+import BackgroundImage from "gatsby-background-image"
+import { StaticQuery, graphql, navigate } from "gatsby"
+import ReCAPTCHA from "react-google-recaptcha"
+import { FormattedMessage } from "react-intl"
+import Cookies from "js-cookie"
 
-import Button from '@/components/ui/Button'
-import Description from '@/components/ui/Description'
-import { css } from '@emotion/core'
+import Button from "@/components/ui/Button"
+import Description from "@/components/ui/Description"
+import { css } from "@emotion/core"
 
-import Title from '@/components/ui/Title'
-import { mq } from '@/components/layouts/utils/base'
-import { Colors } from '@/components/layouts/utils/theme'
+import Title from "@/components/ui/Title"
+import { mq } from "@/components/layouts/utils/base"
+import { Colors } from "@/components/layouts/utils/theme"
 
 const BackgroundContent = ({ className, children }) => {
   return (
@@ -55,6 +55,7 @@ const BackgroundContainer = styled(BackgroundContent)`
   `)}
 `
 const HighlightTitle = styled.h2`
+  font-family: "Rubik", sans-serif;
   color: white;
   margin: 40px 0 1% 0;
   background: #e65862;
@@ -74,7 +75,7 @@ const DivContainer = styled.div`
   margin-bottom: 20px;
   padding: 20px;
   border-radius: 5px;
-  box-shadow: 1px 2px 10px -2px rgba(0,0,0,0.8);
+  box-shadow: 1px 2px 10px -2px rgba(0, 0, 0, 0.8);
 
   ${mq.md(css`
     height: 500px;
@@ -88,9 +89,7 @@ const ButtonContainer = styled.div`
 
   ${mq.md(css`
     margin: 30px auto;
-  `)}
-
-  /* button {
+  `)} /* button {
     width: 185px;
     height: 32px;
     font-size: 12px;
@@ -120,66 +119,88 @@ const BannerComponent = ({ urlPrefix }) => {
     navigate(`${urlPrefix}/test`)
   }
 
-  const mindsDBCovid = Cookies.get('mindsDBCovid')
+  const mindsDBCovid = Cookies.get("mindsDBCovid")
   const [mindsDBCovidState] = useState(mindsDBCovid)
   const [isValidRecaptcha, setIsValidRecaptcha] = useState(false)
-  const onRecaptchaValidated = (recaptchaToken) => {
+  const onRecaptchaValidated = recaptchaToken => {
     setIsValidRecaptcha(!!recaptchaToken)
   }
 
- return (
-  <BackgroundContainer>
-    <div className="container">
-      <div className="row">
-        <div className="col-xs-12 col-md-7">
-          <div>
-            <HighlightTitle><FormattedMessage id="covid.text" /></HighlightTitle>
-            <Title marginTop="5px" marginBottom="10px" max="10" min="25" textAlign="left" color="white">
-              <FormattedMessage id="banner.leftSection.title" />
-            </Title>
-            <Description textAlign="left" color="white" max="10" min="18" customClass={customDescription}>
-              <FormattedMessage id="banner.leftSection.desription1" />
-              <SepareteSpan/>
-              <FormattedMessage id="banner.leftSection.desription2" />
-            </Description>
+  return (
+    <BackgroundContainer>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 col-md-7">
+            <div>
+              <HighlightTitle>
+                <FormattedMessage id="covid.text" />
+              </HighlightTitle>
+              <Title
+                marginTop="5px"
+                marginBottom="10px"
+                max="10"
+                min="25"
+                textAlign="left"
+                color="white"
+              >
+                <FormattedMessage id="banner.leftSection.title" />
+              </Title>
+              <Description
+                textAlign="left"
+                color="white"
+                max="10"
+                min="18"
+                customClass={customDescription}
+              >
+                <FormattedMessage id="banner.leftSection.desription1" />
+                <SepareteSpan />
+                <FormattedMessage id="banner.leftSection.desription2" />
+              </Description>
+            </div>
           </div>
-        </div>
-        <div className="col-xs-12 col-md-5">
-          <DivContainer>
-            {/* <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
+          <div className="col-xs-12 col-md-5">
+            <DivContainer>
+              {/* <Title marginTop="20px" marginBottom="20px" max="10" min="22" textAlign="center" color="black">
               <FormattedMessage id="banner.rightSection.title" />
             </Title> */}
-            <Description textAlign="left" color="#5d6970" max="10" min="14">
-              <FormattedMessage id="banner.rigthSection.description1" />
-            </Description>
-            <Description marginTop="5px" textAlign="left" color="#5d6970" max="10" min="14">
-              <FormattedMessage id="banner.rigthSection.description2" />
-            </Description>
-            <CaptchaContainer>
-              <ReCAPTCHA
-                sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
-                onChange={onRecaptchaValidated}
-              />
-            </CaptchaContainer>
-            <ButtonContainer>
-              <Button
-                type="button"
-                stylesType="common"
-                backgroundColor={Colors.lightGreen}
-                backgroundColorHover={Colors.white}
-                callback={goto}
-                disabled={!isValidRecaptcha || mindsDBCovidState === 'completed'}
+              <Description textAlign="left" color="#5d6970" max="10" min="14">
+                <FormattedMessage id="banner.rigthSection.description1" />
+              </Description>
+              <Description
+                marginTop="5px"
+                textAlign="left"
+                color="#5d6970"
+                max="10"
+                min="14"
               >
-                <FormattedMessage id="banner.rigthSection.button" />
-              </Button>
-            </ButtonContainer>
-          </DivContainer>
+                <FormattedMessage id="banner.rigthSection.description2" />
+              </Description>
+              <CaptchaContainer>
+                <ReCAPTCHA
+                  sitekey={process.env.GATSBY_GOOGLE_RECAPTCHA_KEY}
+                  onChange={onRecaptchaValidated}
+                />
+              </CaptchaContainer>
+              <ButtonContainer>
+                <Button
+                  type="button"
+                  stylesType="common"
+                  backgroundColor={Colors.lightGreen}
+                  backgroundColorHover={Colors.white}
+                  callback={goto}
+                  disabled={
+                    !isValidRecaptcha || mindsDBCovidState === "completed"
+                  }
+                >
+                  <FormattedMessage id="banner.rigthSection.button" />
+                </Button>
+              </ButtonContainer>
+            </DivContainer>
+          </div>
         </div>
       </div>
-    </div>
-    
-  </BackgroundContainer>
- )
+    </BackgroundContainer>
+  )
 }
 
 export default BannerComponent
