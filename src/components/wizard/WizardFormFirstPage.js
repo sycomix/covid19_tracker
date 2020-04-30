@@ -1,15 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Field, reduxForm } from 'redux-form'
 import styled from '@emotion/styled'
 import { css } from '@emotion/core'
 import { FormattedMessage } from 'react-intl'
 import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
+import GooglePlacesAutocomplete, { geocodeByPlaceId } from 'react-google-places-autocomplete'
+import 'react-google-places-autocomplete/dist/index.min.css'
 
 import Title from '@/components/ui/Title'
 import validate from './validate'
 import { Colors } from '@/components/layouts/utils/theme'
 import Button from '@/components/ui/Button'
 import { mq } from '@/components/layouts/utils/base'
+import Map from '@/components/ui/Map'
 
 const Form = styled.form`
   input {
@@ -68,39 +71,74 @@ const renderError = ({ meta: { touched, error } }) =>
   touched && error ? <RequieredSpan>{error}</RequieredSpan> : false
 
 const WizardFormFirstPage = props => {
+  const [lat, setLat] = useState()
+  const [lng, setLng] = useState()
+
+  const getAddressInfo = (data) => {
+    console.log(11, data) // MIRAR AQUI
+    setLat()
+    setLng()
+
+    setTimeout(() => {
+      if (data.place_id) {
+        geocodeByPlaceId(data.place_id)
+          .then(results => {
+            console.log(22, results) // MIRAR AQUI
+            const geo = results[0].geometry.location
+
+            setLat(geo.lat())
+            setLng(geo.lng())
+          })
+          .catch(error => console.error(error))
+      }
+    }, 500)
+  }
+
   const { handleSubmit } = props
   return (
     <Form onSubmit={handleSubmit}>
-       <Title marginBottom="30px" max="10" min="25" color="black">
+      <Title marginBottom="30px" max="10" min="25" color="black">
         How are you feeling?
       </Title>
-        <QuestionContainer>
-          <RadioContainer>
-            <RadioOptions>
-              <Label htmlFor="feeling">
-                <Field
-                  name="feeling"
-                  component="input"
-                  type="radio"
-                  value="Great"
-                />
-                <FaThumbsUp/> Great, thanks!
+      <QuestionContainer>
+        <RadioContainer>
+          <RadioOptions>
+            <Label htmlFor="feeling">
+              <Field
+                name="feeling"
+                component="input"
+                type="radio"
+                value="Great"
+              />
+              <FaThumbsUp /> Great, thanks!
               </Label>
-            </RadioOptions>
-            <RadioOptions>
-              <Label htmlFor="feeling">
-                <Field
-                  name="feeling"
-                  component="input"
-                  type="radio"
-                  value="Not feeling well"
-                />
-                <FaThumbsDown/> Not feeling well
+          </RadioOptions>
+          <RadioOptions>
+            <Label htmlFor="feeling">
+              <Field
+                name="feeling"
+                component="input"
+                type="radio"
+                value="Not feeling well"
+              />
+              <FaThumbsDown /> Not feeling well
               </Label>
-            </RadioOptions>
-            <Field name="feeling" component={renderError} />
-          </RadioContainer>
-        </QuestionContainer>
+          </RadioOptions>
+          <Field name="feeling" component={renderError} />
+        </RadioContainer>
+      </QuestionContainer>
+      <div>
+        <GooglePlacesAutocomplete
+          apiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}
+          onSelect={getAddressInfo}
+        />
+
+        {
+          lat & lng
+            ? < Map lat={lat} lng={lng} />
+            : null
+        }
+      </div >
       <ButtonContainer>
         <Button
           type="submit"
