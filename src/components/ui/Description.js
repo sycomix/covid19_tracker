@@ -1,25 +1,30 @@
-import React from 'react'
+import React from "react"
 
-import styled from '@emotion/styled'
-import { Colors } from '@/components/layouts/utils/theme'
-import { makeResponsive } from '@/components/layouts/utils/base'
+import styled from "@emotion/styled"
+import { Colors } from "@/components/layouts/utils/theme"
+import { makeResponsive } from "@/components/layouts/utils/base"
 
 const CustomDescription = styled.p`
+  font-family: "Karla", sans-serif;
   color: ${props => props.color || Colors.mirage};
-  text-align: ${props => props.textAlign || 'center'};
-  margin-top: ${props => props.marginTop || '0px'};
-  margin-bottom: ${props => props.marginBottom || '0px'};
-  padding: ${props => props.padding || '0px'};
-  width: ${props => props.width || 'auto'};
+  text-align: ${props => props.textAlign || "center"};
+  margin-top: ${props => props.marginTop || "0px"};
+  margin-bottom: ${props => props.marginBottom || "0px"};
+  padding: ${props => props.padding || "0px"};
+  width: ${props => props.width || "auto"};
 
-  ${props => makeResponsive([
-    {
-      property: 'font-size', min: props.min, max: props.max, unit: 'px',
-    },
-  ])}
+  ${props =>
+    makeResponsive([
+      {
+        property: "font-size",
+        min: props.min,
+        max: props.max,
+        unit: "px",
+      },
+    ])}
 `
 
-const Description = (props) => {
+const Description = props => {
   const {
     children,
     customClass,
@@ -30,7 +35,7 @@ const Description = (props) => {
     min,
     max,
     padding,
-    width
+    width,
   } = props
 
   return (
