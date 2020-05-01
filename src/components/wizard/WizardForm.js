@@ -7,7 +7,7 @@ import WizardFormDynamicPage from "./WizardFormDynamicPage"
 import { questions } from "./questions.json"
 
 const WizardForm = props => {
-  const { onSubmit } = props
+  const { onSubmit, updateMapsData } = props
 
   const [page, setPage] = useState(1)
   const [feeling, setFeeling] = useState(false)
@@ -46,6 +46,7 @@ const WizardForm = props => {
       {page === 2 && (
         <WizardFormSecondPage
           feeling={feeling}
+          updateMapsData={updateMapsData}
           previousPage={previousPage}
           onSubmit={feeling ? onSubmit : nextPage}
         />

@@ -1,15 +1,15 @@
-import React from 'react'
-import { Field, reduxForm } from 'redux-form'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import { FormattedMessage } from 'react-intl'
-import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+import { FormattedMessage } from "react-intl"
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa"
 
-import Title from '@/components/ui/Title'
-import validate from './validate'
-import { Colors } from '@/components/layouts/utils/theme'
-import Button from '@/components/ui/Button'
-import { mq } from '@/components/layouts/utils/base'
+import Title from "@/components/ui/Title"
+import validate from "./validate"
+import { Colors } from "@/components/layouts/utils/theme"
+import Button from "@/components/ui/Button"
+import { mq } from "@/components/layouts/utils/base"
 
 const Form = styled.form`
   input {
@@ -44,7 +44,6 @@ const ButtonContainer = styled.div`
   justify-content: center;
   margin-top: 20px;
 
-  
   ${mq.sm(css`
     justify-content: flex-end;
     margin: 40px 0px -30px 0px;
@@ -69,38 +68,39 @@ const renderError = ({ meta: { touched, error } }) =>
 
 const WizardFormFirstPage = props => {
   const { handleSubmit } = props
+
   return (
     <Form onSubmit={handleSubmit}>
-       <Title marginBottom="30px" max="10" min="25" color="black">
+      <Title marginBottom="30px" max="10" min="25" color="black">
         How are you feeling?
       </Title>
-        <QuestionContainer>
-          <RadioContainer>
-            <RadioOptions>
-              <Label htmlFor="feeling">
-                <Field
-                  name="feeling"
-                  component="input"
-                  type="radio"
-                  value="Great"
-                />
-                <FaThumbsUp/> Great, thanks!
-              </Label>
-            </RadioOptions>
-            <RadioOptions>
-              <Label htmlFor="feeling">
-                <Field
-                  name="feeling"
-                  component="input"
-                  type="radio"
-                  value="Not feeling well"
-                />
-                <FaThumbsDown/> Not feeling well
-              </Label>
-            </RadioOptions>
-            <Field name="feeling" component={renderError} />
-          </RadioContainer>
-        </QuestionContainer>
+      <QuestionContainer>
+        <RadioContainer>
+          <RadioOptions>
+            <Label htmlFor="feeling">
+              <Field
+                name="feeling"
+                component="input"
+                type="radio"
+                value="Great"
+              />
+              <FaThumbsUp /> Great, thanks!
+            </Label>
+          </RadioOptions>
+          <RadioOptions>
+            <Label htmlFor="feeling">
+              <Field
+                name="feeling"
+                component="input"
+                type="radio"
+                value="Not feeling well"
+              />
+              <FaThumbsDown /> Not feeling well
+            </Label>
+          </RadioOptions>
+          <Field name="feeling" component={renderError} />
+        </RadioContainer>
+      </QuestionContainer>
       <ButtonContainer>
         <Button
           type="submit"
@@ -116,8 +116,8 @@ const WizardFormFirstPage = props => {
 }
 
 export default reduxForm({
-  form: 'wizard', // <------ same form name
+  form: "wizard", // <------ same form name
   destroyOnUnmount: false, // <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardFormFirstPage)

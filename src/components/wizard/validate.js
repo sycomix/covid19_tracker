@@ -1,61 +1,52 @@
 const validate = values => {
   const errors = {}
   if (!values.feeling) {
-    errors.feeling = 'Required'
-  }
-  if (!values.country) {
-    errors.country = 'Required'
-  }
-  if (!values.city) {
-    errors.city = 'Required'
-  }
-  if (!values.neighborhood) {
-    errors.neighborhood = 'Required'
+    errors.feeling = "Required"
   }
   if (!values.gender) {
-    errors.gender = 'Required'
+    errors.gender = "Required"
   }
   if (!values.smoker) {
-    errors.smoker = 'Required'
+    errors.smoker = "Required"
   }
   if (!values.hypertension) {
-    errors.hypertension = 'Required'
+    errors.hypertension = "Required"
   }
   if (!values.diabetes) {
-    errors.diabetes = 'Required'
+    errors.diabetes = "Required"
   }
   if (!values.coronaryHeartDesease) {
-    errors.coronaryHeartDesease = 'Required'
+    errors.coronaryHeartDesease = "Required"
   }
   if (!values.fatigue) {
-    errors.fatigue = 'Required'
+    errors.fatigue = "Required"
   }
   if (!values.breathingProblems) {
-    errors.breathingProblems = 'Required'
+    errors.breathingProblems = "Required"
   }
   if (!values.cough) {
-    errors.cough = 'Required'
+    errors.cough = "Required"
   }
   if (!values.sputum) {
-    errors.sputum = 'Required'
+    errors.sputum = "Required"
   }
   if (!values.respiratoryRate) {
-    errors.respiratoryRate = 'Required'
+    errors.respiratoryRate = "Required"
   }
   if (!values.fever) {
-    errors.fever = 'Required'
+    errors.fever = "Required"
   }
   if (!values.myalgia) {
-    errors.myalgia = 'Required'
+    errors.myalgia = "Required"
   }
   if (!values.nausea) {
-    errors.nausea = 'Required'
+    errors.nausea = "Required"
   }
   if (!values.diarrhoea) {
-    errors.diarrhoea = 'Required'
+    errors.diarrhoea = "Required"
   }
   if (!values.exposed) {
-    errors.exposed = 'Required'
+    errors.exposed = "Required"
   }
 
   return errors
