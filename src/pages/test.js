@@ -1,19 +1,20 @@
-import React, { useState } from 'react'
-import styled from '@emotion/styled'
-import { StaticQuery, graphql } from 'gatsby'
-import BackgroundImage from 'gatsby-background-image'
-import firebase from 'gatsby-plugin-firebase'
-import { reset } from 'redux-form'
-import { FormattedMessage } from 'react-intl'
-import Cookies from 'js-cookie';
+import React, { useState } from "react"
+import styled from "@emotion/styled"
+import { StaticQuery, graphql } from "gatsby"
+import BackgroundImage from "gatsby-background-image"
+import firebase from "gatsby-plugin-firebase"
+import { reset } from "redux-form"
+import { FormattedMessage } from "react-intl"
+import Cookies from "js-cookie"
 
-import Button from '@/components/ui/Button'
-import { Colors } from '@/components/layouts/utils/theme'
-import { mq } from '@/components/layouts/utils/base'
-import { css } from '@emotion/core'
-import WizardForm from '@/components/wizard/WizardForm'
-import Title from '@/components/ui/Title'
-import SEO from '../components/seo'
+import Button from "@/components/ui/Button"
+import { Colors } from "@/components/layouts/utils/theme"
+import { mq } from "@/components/layouts/utils/base"
+import { css } from "@emotion/core"
+import WizardForm from "@/components/wizard/WizardForm"
+import Title from "@/components/ui/Title"
+import SEO from "../components/seo"
+import flattenObject from "../lib/utils"
 
 const BackgroundContent = ({ className, children }) => {
   return (
@@ -98,24 +99,32 @@ const ButtonContainer = styled.div`
 const TestPage = () => {
   const [showForm, setShowForm] = useState(true)
   const [likCopied, setlikCopied] = useState(false)
+  const [mapsData, setMapsData] = useState()
+
+  const updateMapsData = data => {
+    setMapsData(data)
+  }
 
   const setAnswerData = async (values, dispatch) => {
+    values = flattenObject({ ...values, mapsData })
     if (values) {
-      const answersCollection = firebase.firestore().collection('answers')
+      const answersCollection = firebase.firestore().collection("answers")
       const result = await answersCollection.add({
         ...values,
         submittedDate: new Date(),
       })
-  
+
       if (result.id) {
         setShowForm(false)
-        const mindsDBCovidCount = Cookies.get('mindsDBCovidCount') ? Cookies.get('mindsDBCovidCount') : 0
+        const mindsDBCovidCount = Cookies.get("mindsDBCovidCount")
+          ? Cookies.get("mindsDBCovidCount")
+          : 0
 
-        Cookies.set('mindsDBCovid', 'completed');
-        Cookies.set('mindsDBCovidCount', parseInt(mindsDBCovidCount) + 1);
+        Cookies.set("mindsDBCovid", "completed")
+        Cookies.set("mindsDBCovidCount", parseInt(mindsDBCovidCount) + 1)
 
-        dispatch(reset('wizard'))
-      } 
+        dispatch(reset("wizard"))
+      }
     }
   }
 
@@ -131,48 +140,61 @@ const TestPage = () => {
         <div className="container">
           <div className="row">
             <div className="col-xs-12 col-md-12">
-              <Title marginTop="60px"  max="10" min="28" color="white">
-                <HighlightTitle><FormattedMessage id="covid.text" /></HighlightTitle>&nbsp;
+              <Title marginTop="60px" max="10" min="28" color="white">
+                <HighlightTitle>
+                  <FormattedMessage id="covid.text" />
+                </HighlightTitle>
+                &nbsp;
                 <FormattedMessage id="banner.leftSection.title" />
               </Title>
             </div>
             <div className="col-xs-12 col-md-12">
               {/* Wizard */}
-              {
-                showForm
-                  ? (
-                    <WizardContainer>
-                      <WizardForm onSubmit={setAnswerData} />
-                    </WizardContainer>
-                  )
-                  : (
-                    <WizardContainer>
-                      <Title marginTop="40px" marginBottom="40px" max="10" min="20">
-                        <FormattedMessage id="wizard.finish.title" />  
-                      </Title>
-                      <Description>
-                        <FormattedMessage id="wizard.finish.description" />
-                      </Description>
-                      <Title marginTop="50px" marginBottom="30px" max="10" min="28" color="black">
-                        <FormattedMessage id="wizard.finish.description.strong.part1" /> 
-                        <ThanksColor>&nbsp;<FormattedMessage id="wizard.finish.description.strong.part2" />&nbsp;</ThanksColor> 
-                        <FormattedMessage id="wizard.finish.description.strong.part3" />
-                      </Title>
-                      <ButtonContainer>
-                        <Button
-                          type="button"
-                          stylesType="common"
-                          backgroundColor={Colors.lightGreen}
-                          backgroundColorHover={Colors.white}
-                          callback={copyTextToClipboard}
-                        >
-                          <FormattedMessage id="wizard.finish.button" />
-                        </Button>&nbsp;
-                        {likCopied && <strong>Copied!</strong>}
-                      </ButtonContainer>
-                    </WizardContainer>
-                  )
-              }
+              {showForm ? (
+                <WizardContainer>
+                  <WizardForm
+                    updateMapsData={updateMapsData}
+                    onSubmit={setAnswerData}
+                  />
+                </WizardContainer>
+              ) : (
+                <WizardContainer>
+                  <Title marginTop="40px" marginBottom="40px" max="10" min="20">
+                    <FormattedMessage id="wizard.finish.title" />
+                  </Title>
+                  <Description>
+                    <FormattedMessage id="wizard.finish.description" />
+                  </Description>
+                  <Title
+                    marginTop="50px"
+                    marginBottom="30px"
+                    max="10"
+                    min="28"
+                    color="black"
+                  >
+                    <FormattedMessage id="wizard.finish.description.strong.part1" />
+                    <ThanksColor>
+                      &nbsp;
+                      <FormattedMessage id="wizard.finish.description.strong.part2" />
+                      &nbsp;
+                    </ThanksColor>
+                    <FormattedMessage id="wizard.finish.description.strong.part3" />
+                  </Title>
+                  <ButtonContainer>
+                    <Button
+                      type="button"
+                      stylesType="common"
+                      backgroundColor={Colors.lightGreen}
+                      backgroundColorHover={Colors.white}
+                      callback={copyTextToClipboard}
+                    >
+                      <FormattedMessage id="wizard.finish.button" />
+                    </Button>
+                    &nbsp;
+                    {likCopied && <strong>Copied!</strong>}
+                  </ButtonContainer>
+                </WizardContainer>
+              )}
             </div>
           </div>
         </div>

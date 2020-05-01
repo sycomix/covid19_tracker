@@ -1,32 +1,35 @@
-import React from 'react'
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react'
+import React from "react"
+import { Map, GoogleApiWrapper, Marker } from "google-maps-react"
+import styled from "@emotion/styled"
 
 const mapStyles = {
-  width: '100%',
-  maxWidth: '600px',
-  height: '500px',
-};
+  width: "100%",
+  maxWidth: "600px",
+  height: "250px",
+}
+const OverMap = styled.div`
+  div:first-of-type {
+    position: relative !important;
+    border-radius: 10px;
+  }
+`
 
-const MapContainer = (props) => {
+const MapContainer = props => {
   const { lat, lng } = props
 
   return (
-    <div>
-      {
-        lat & lng
-          ? (
-            <Map
-              google={props.google}
-              zoom={14}
-              style={mapStyles}
-              initialCenter={{ lat, lng }}
-            >
-              <Marker position={{ lat, lng }} />
-            </Map>
-          )
-          : null
-      }
-    </div>
+    <OverMap>
+      {lat & lng ? (
+        <Map
+          google={props.google}
+          zoom={18}
+          style={mapStyles}
+          initialCenter={{ lat, lng }}
+        >
+          <Marker position={{ lat, lng }} />
+        </Map>
+      ) : null}
+    </OverMap>
   )
 }
 

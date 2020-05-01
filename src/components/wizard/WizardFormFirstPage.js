@@ -1,18 +1,15 @@
-import React, { useState } from 'react'
-import { Field, reduxForm } from 'redux-form'
-import styled from '@emotion/styled'
-import { css } from '@emotion/core'
-import { FormattedMessage } from 'react-intl'
-import { FaThumbsUp, FaThumbsDown } from 'react-icons/fa'
-import GooglePlacesAutocomplete, { geocodeByPlaceId } from 'react-google-places-autocomplete'
-import 'react-google-places-autocomplete/dist/index.min.css'
+import React from "react"
+import { Field, reduxForm } from "redux-form"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+import { FormattedMessage } from "react-intl"
+import { FaThumbsUp, FaThumbsDown } from "react-icons/fa"
 
-import Title from '@/components/ui/Title'
-import validate from './validate'
-import { Colors } from '@/components/layouts/utils/theme'
-import Button from '@/components/ui/Button'
-import { mq } from '@/components/layouts/utils/base'
-import Map from '@/components/ui/Map'
+import Title from "@/components/ui/Title"
+import validate from "./validate"
+import { Colors } from "@/components/layouts/utils/theme"
+import Button from "@/components/ui/Button"
+import { mq } from "@/components/layouts/utils/base"
 
 const Form = styled.form`
   input {
@@ -47,7 +44,6 @@ const ButtonContainer = styled.div`
   justify-content: center;
   margin-top: 20px;
 
-  
   ${mq.sm(css`
     justify-content: flex-end;
     margin: 40px 0px -30px 0px;
@@ -71,30 +67,8 @@ const renderError = ({ meta: { touched, error } }) =>
   touched && error ? <RequieredSpan>{error}</RequieredSpan> : false
 
 const WizardFormFirstPage = props => {
-  const [lat, setLat] = useState()
-  const [lng, setLng] = useState()
-
-  const getAddressInfo = (data) => {
-    console.log(11, data) // MIRAR AQUI
-    setLat()
-    setLng()
-
-    setTimeout(() => {
-      if (data.place_id) {
-        geocodeByPlaceId(data.place_id)
-          .then(results => {
-            console.log(22, results) // MIRAR AQUI
-            const geo = results[0].geometry.location
-
-            setLat(geo.lat())
-            setLng(geo.lng())
-          })
-          .catch(error => console.error(error))
-      }
-    }, 500)
-  }
-
   const { handleSubmit } = props
+
   return (
     <Form onSubmit={handleSubmit}>
       <Title marginBottom="30px" max="10" min="25" color="black">
@@ -111,7 +85,7 @@ const WizardFormFirstPage = props => {
                 value="Great"
               />
               <FaThumbsUp /> Great, thanks!
-              </Label>
+            </Label>
           </RadioOptions>
           <RadioOptions>
             <Label htmlFor="feeling">
@@ -122,23 +96,11 @@ const WizardFormFirstPage = props => {
                 value="Not feeling well"
               />
               <FaThumbsDown /> Not feeling well
-              </Label>
+            </Label>
           </RadioOptions>
           <Field name="feeling" component={renderError} />
         </RadioContainer>
       </QuestionContainer>
-      <div>
-        <GooglePlacesAutocomplete
-          apiKey={process.env.GATSBY_GOOGLE_MAPS_API_KEY}
-          onSelect={getAddressInfo}
-        />
-
-        {
-          lat & lng
-            ? < Map lat={lat} lng={lng} />
-            : null
-        }
-      </div >
       <ButtonContainer>
         <Button
           type="submit"
@@ -154,8 +116,8 @@ const WizardFormFirstPage = props => {
 }
 
 export default reduxForm({
-  form: 'wizard', // <------ same form name
+  form: "wizard", // <------ same form name
   destroyOnUnmount: false, // <------ preserve form data
   forceUnregisterOnUnmount: true, // <------ unregister fields on unmount
-  validate
+  validate,
 })(WizardFormFirstPage)
